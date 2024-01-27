@@ -1,2 +1,3 @@
 # Laboratório de Programação - Disciplina
-Esse repositório é destinado para fins de cumprimento da disciplana de Laboratório de Programação, do curso de graduação Sistemas de Informação - Bacharelado, da Universidade Federal do Oeste do Pará (UFOPA). A disciplina possuí 3 (três) Avalições, sendo elas, a construção de um portifólio que contenha projetos relacionados os assuntos estudados em cada aula.
+---
+### Este repositório destina-se ao cumprimento da disciplina de Laboratório de Programação do curso de graduação em Sistemas de Informação - Bacharelado, da Universidade Federal do Oeste do Pará (UFOPA). A disciplina possui 3 (três) avaliações, que consistem na construção de um portfólio contendo projetos relacionados aos assuntos estudados em cada aula.
