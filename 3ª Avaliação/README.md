@@ -1,2 +1,2 @@
 # 3ª Avaliação
-  ## Iniciará após o termino da 2ª Avaliação
+  ## Iniciará após o término da 2ª Avaliação
