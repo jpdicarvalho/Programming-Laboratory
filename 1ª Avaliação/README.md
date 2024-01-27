@@ -1,4 +1,7 @@
 ## 1ª Avaliação
+  # Objetivo
+  O objetivo deste portfólio é criar exemplos práticos utilizando React, JavaScript e, se necessário, um banco de dados MySQL para cada conteúdo abordado em sala. Além disso, cada exemplo terá uma descrição detalhada contendo o modo de construção e sua aplicação em diversas situações da computação.
+  
 - **Aula 1**
   - Paradigmas de Programação.
   - Conceitos de Linguagens de Programação. [1(1.5)]
