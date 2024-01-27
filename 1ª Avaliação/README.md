@@ -17,7 +17,7 @@
   - Identificar e exemplificar em C, Java, Python e Rust; os paradigmas apresentados.
   - Desenvolver a "biblioteca" de programas e apresentá-la de modo semelhante ao deste tutorial: Strings.
   - Produzir infográficos, com exemplos interativos, dos diagramas e das linguagens apresentadas.
-
+---
 - **Aula 2**
   - Problemas em Paradigmas Imperativos: Processamento de Strings.
   - Paradigmas de programação – imperativo e declarativo.
