@@ -35,7 +35,7 @@
   - Criar exemplos para processamento de Strings em C, Java, Python, Rust, ... para os paradigmas apresentados.
   - Desenvolver a "biblioteca" de funções e apresentá-la de modo semelhante ao deste tutorial: Strings.
   - Produzir infográfico, com exemplos interativos, dos Paradigmas e das Linguagens apresentadas.
-
+---
 **Aula 3**
   - Problemas em Paradigmas Imperativos: Matemáticos.
   - Lista de operações matemáticas.
@@ -49,7 +49,7 @@
     
 - Produtos: 
   - Lista de operações estatísticas.
-
+---
 **Aula 4**
   - Problemas em Paradigmas Imperativos: Geometria Computacional.
   - Geometria Computacional.
@@ -65,7 +65,7 @@
   - Geometria Computacional.
   - Fundamentos de Geometria Computacional.
   - Geometria Computacional - Exercícios.
-
+---
 **Aula 5**
   - Revisão de conteúdos e 1ª Avaliação.
     
