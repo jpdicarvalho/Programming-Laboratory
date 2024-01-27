@@ -35,3 +35,42 @@
   - Criar exemplos para processamento de Strings em C, Java, Python, Rust, ... para os paradigmas apresentados.
   - Desenvolver a "biblioteca" de funções e apresentá-la de modo semelhante ao deste tutorial: Strings.
   - Produzir infográfico, com exemplos interativos, dos Paradigmas e das Linguagens apresentadas.
+
+**Aula 3**
+  - Problemas em Paradigmas Imperativos: Matemáticos.
+  - Lista de operações matemáticas.
+    
+- Atividades: 
+  - Programando e Debatendo: O uso de recursividade melhora o desempenho nesta categoria de funções?
+    
+- Avaliativas:
+  - Criar exemplos para processamento matemático em C, Java, Python, Rust, ... para os paradigmas apresentados.
+  - Desenvolver a "biblioteca" de funções e apresentá-la de modo semelhante ao deste tutorial: Strings.
+    
+- Produtos: 
+  - Lista de operações estatísticas.
+
+**Aula 4**
+  - Problemas em Paradigmas Imperativos: Geometria Computacional.
+  - Geometria Computacional.
+  - Introdução à Geometria Computacional.
+    
+- Atividades: 
+  - Use de bibliotecas gráficas básicas de linguagens como C, Java, Python, Rust, ...  para:
+    - Desenhar figuras geométricas básicas.
+    - Plotar um ponto e deslocá-lo "animadamente" por 300 pixels.
+    
+- Produtos: 
+  - Introdução a Geometria Computacional.
+  - Geometria Computacional.
+  - Fundamentos de Geometria Computacional.
+  - Geometria Computacional - Exercícios.
+
+**Aula 5**
+  - Revisão de conteúdos e 1ª Avaliação.
+    
+- Atividades: 
+  - Apresentação e Avaliação de trabalhos.
+    
+- Produtos: 
+  - Relatório de Produto 1 e/ou Prova Prática 1.
