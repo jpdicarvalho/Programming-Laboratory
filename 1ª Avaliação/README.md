@@ -4,7 +4,7 @@
 
 - **Aula 1**
   - Paradigmas de Programação.
-  - Conceitos de Linguagens de Programação. [1(1.5)]
+  - Conceitos de Linguagens de Programação.
   - Paradigmas de programação: o que são e quais os principais?
   - O que são Paradigmas de Programação.
 
