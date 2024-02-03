@@ -32,10 +32,12 @@ body {
 		background-color var(--trans-dur),
 		color var(--trans-dur);
 }
-h1 {
+h1{
 	font-size: 2em;
 	margin: 0 0 3rem;
 	padding-top: 1.5rem;
+}
+h1, h3, h4{
 	text-align: center;
 }
 .btn {

@@ -54,30 +54,16 @@ const Home = () =>{
                     </div>
                     <div className={`timeline__item-body ${expandedItems.includes('item1') ? 'timeline__item-body--expanded' : ''}`} id="item1-ctrld" role="region" aria-labelledby="item1" aria-hidden={!expandedItems.includes('item1')}>
                         <div className="timeline__item-body-content">
-                            <h3>Paradigma Imperativo:</h3>
+                            <h3>Paradigmas de programação</h3>
+                            <h4>JavaScript</h4>
                             <p className="timeline__item-p">
-                            No paradigma imperativo, o foco está em como as instruções são executadas.
-                            O programador descreve passo a passo o que o computador deve fazer para atingir o resultado desejado.
-                            </p><br />
-                            <pre>
-            <code>
-                {`// Exemplo imperativo em JavaScript
-function calcularSomaImpares(array) {
-    let soma = 0;
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] % 2 !== 0) {
-            soma += array[i];
-        }
-    }
-    return soma;
-}
-
-const numeros = [1, 2, 3, 4, 5];
-const somaImpares = calcularSomaImpares(numeros);
-console.log('Soma dos números ímpares:', somaImpares);`}
-            </code>
-        </pre>
-
+                            <strong>Imperativo:</strong> Descreve passo a passo como o programa deve executar as tarefas, usando instruções sequenciais e estruturas de controle.<br/>
+                            <strong>Declarativo:</strong> Define o que o programa deve realizar, focando nos resultados desejados em vez dos detalhes de implementação.<br/>
+                            <strong>Orientado a Objetos:</strong> Organiza o código em torno de objetos que contêm propriedades e métodos, facilitando a reutilização e a encapsulação de dados.<br/>
+                            <strong>Funcional:</strong> Trata as funções como cidadãs de primeira classe, permitindo que sejam passadas como argumentos e retornadas por outras funções, e enfatiza a imutabilidade e a composição de funções.<br/>
+                            <strong>Event-Driven:</strong> Baseia-se na manipulação de eventos do usuário e do sistema, respondendo a esses eventos de forma assíncrona.<br/>
+                            <strong>Assíncrono:</strong> Lida com operações que não bloqueiam a execução do programa, utilizando callbacks, Promises e async/await para lidar com tarefas assíncronas de forma eficiente.<br/>
+                            </p>
                         </div>
                     </div>
                 </div>
