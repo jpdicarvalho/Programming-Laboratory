@@ -17,6 +17,9 @@ a {
 	color: var(--primary);
 	transition: color var(--trans-dur);
 }
+p{
+    text-align: justify;
+}
 body,
 button {
 	color: var(--fg);
@@ -155,6 +158,8 @@ h1 {
 /* Expanded state */
 .timeline__item-body--expanded {
 	height: auto;
+    width: auto;
+    overflow-x: scroll;
 }
 .timeline__item-body--expanded .timeline__item-body-content {
 	opacity: 1;

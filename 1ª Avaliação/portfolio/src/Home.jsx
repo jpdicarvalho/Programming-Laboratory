@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import './Home.css';
 
 const Home = () =>{
@@ -49,13 +48,36 @@ const Home = () =>{
                         </button>
                         <span className="timeline__dot"></span>
                         <span id="item1-name" className="timeline__meta">
-                            <time className="timeline__date" dateTime="1970-01-01">January 1, 1970</time><br/>
+                            <time className="timeline__date" dateTime="1970-01-01">January 17, 2024</time><br/>
                             <strong className="timeline__title">Aula 1</strong>
                         </span>
                     </div>
                     <div className={`timeline__item-body ${expandedItems.includes('item1') ? 'timeline__item-body--expanded' : ''}`} id="item1-ctrld" role="region" aria-labelledby="item1" aria-hidden={!expandedItems.includes('item1')}>
                         <div className="timeline__item-body-content">
-                            <p className="timeline__item-p">This is the day the Unix clock began (or <time dateTime="1969-12-31">December 31, 1969</time> if you live behind UTC 😉).</p>
+                            <h3>Paradigma Imperativo:</h3>
+                            <p className="timeline__item-p">
+                            No paradigma imperativo, o foco está em como as instruções são executadas.
+                            O programador descreve passo a passo o que o computador deve fazer para atingir o resultado desejado.
+                            </p><br />
+                            <pre>
+            <code>
+                {`// Exemplo imperativo em JavaScript
+function calcularSomaImpares(array) {
+    let soma = 0;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] % 2 !== 0) {
+            soma += array[i];
+        }
+    }
+    return soma;
+}
+
+const numeros = [1, 2, 3, 4, 5];
+const somaImpares = calcularSomaImpares(numeros);
+console.log('Soma dos números ímpares:', somaImpares);`}
+            </code>
+        </pre>
+
                         </div>
                     </div>
                 </div>
