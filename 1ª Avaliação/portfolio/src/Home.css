@@ -150,6 +150,34 @@ h1, h3, h4{
 		opacity var(--trans-dur) var(--trans-timing),
 		visibility var(--trans-dur) steps(1,end);
 }
+.inputBox{
+	display: flex;
+	flex-direction: column;
+}
+.inputBox input{
+	border: 1px solid #000;
+	border-radius: 10px;
+	padding-left: 5px;
+	height: 40px;
+	width: 300px;
+	margin-top: 10px;
+	font-size: 16px;
+	background: transparent;
+	outline: none;
+}
+.inputBox button{
+	outline: none;
+	border: 1px solid #000;
+	background: transparent;
+	height: 40px;
+	transition: 0.5s;
+}
+.inputBox button:hover{
+	border-radius: 12px;
+	background: #000;
+	transition: 0.5s;
+	color: aliceblue;
+}
 .timeline__meta {
 	width: 100%;
 }
@@ -161,7 +189,6 @@ h1, h3, h4{
 .timeline__item-body--expanded {
 	height: auto;
     width: auto;
-    overflow-x: scroll;
 }
 .timeline__item-body--expanded .timeline__item-body-content {
 	opacity: 1;
