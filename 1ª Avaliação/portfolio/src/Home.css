@@ -153,6 +153,9 @@ h1, h3, h4{
 .inputBox{
 	display: flex;
 	flex-direction: column;
+	background: rgb(203, 195, 195);
+	margin: 10px;
+	border-radius: 12px;
 }
 .inputBox input{
 	border: 1px solid #000;
@@ -177,6 +180,9 @@ h1, h3, h4{
 	background: #000;
 	transition: 0.5s;
 	color: aliceblue;
+}
+.tittle_Ex{
+	margin-top: 10px;
 }
 .timeline__meta {
 	width: 100%;

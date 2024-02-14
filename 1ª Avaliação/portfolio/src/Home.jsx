@@ -12,8 +12,9 @@ const Home = () =>{
             setExpandedItems([...expandedItems, itemId]);
         }
     };
-
-    function contarVogais() {
+    
+    //Função para processar string - paradigma imperativo
+    function contarVogaisImperativo() {
         // Obtém o valor inserido no elemento de entrada HTML com o id 'inputImperativo'
         let inputImperativo = document.getElementById('inputImperativo').value;
     
@@ -37,8 +38,30 @@ const Home = () =>{
     
         // Atualiza o conteúdo do elemento HTML com o id 'vogaisCount' para exibir o número de vogais encontrado
         document.getElementById('vogaisCount').textContent = 'Número de vogais: ' + count;
-    }    
+    }
+
+    //Função para processar string - paradigma declarativo
+    function contarVogaisDeclarativo() {
+        // Obtém o valor inserido no elemento de entrada HTML com o id 'inputImperativo'
+        let inputImperativo = document.getElementById('inputDeclarativo').value;
     
+        // Define um array contendo as vogais
+        const vogais = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+    
+        // Usa o método reduce para contar as vogais na string
+        let count = inputImperativo.split('').reduce((acc, char) => {
+            if (vogais.includes(char)) {
+                return acc + 1;
+            } else {
+                return acc;
+            }
+        }, 0);
+    
+        // Atualiza o conteúdo do elemento HTML com o id 'vogaisCountDeclarativo' para exibir o número de vogais encontradas
+        document.getElementById('vogaisCountDeclarativo').textContent = 'Número de vogais Declarativo: ' + count;
+    }
+    
+
     return(
         <div>
             <svg display="none">
@@ -124,8 +147,14 @@ const Home = () =>{
                             <span>Contagem de Vogais - Paradigma Imperativo</span>
                             <input type="text" id="inputImperativo" placeholder="Digite uma string"/><br />
                             <p className="timeline__item-p" id="vogaisCount">Número de vogais:</p>
-                            <button onClick={contarVogais}>Processar String</button>
-                            
+                            <button onClick={contarVogaisImperativo}>Processar String</button>
+                        </div>
+
+                        <div className="timeline__item-body-content inputBox">
+                        <span className='tittle_Ex'>Contagem de Vogais - Paradigma Declarativo</span>
+                            <input type="text" id="inputDeclarativo" placeholder="Digite uma string"/><br />
+                            <p className="timeline__item-p" id="vogaisCountDeclarativo">Número de vogais Declarativo:</p>
+                            <button onClick={contarVogaisDeclarativo}>Processar String</button>
                         </div>
                         
                     </div>
