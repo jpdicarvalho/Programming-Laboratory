@@ -151,28 +151,38 @@ const Home = () =>{
                         </div>
 
                         <div className="timeline__item-body-content inputBox">
-                        <span className='tittle_Ex'>Contagem de Vogais - Paradigma Declarativo</span>
+                        <span>Contagem de Vogais - Paradigma Declarativo</span>
                             <input type="text" id="inputDeclarativo" placeholder="Digite uma string"/><br />
                             <p className="timeline__item-p" id="vogaisCountDeclarativo">Número de vogais Declarativo:</p>
                             <button onClick={contarVogaisDeclarativo}>Processar String</button>
                         </div>
-                        
+
                     </div>
                 </div>
                 <div className="timeline__item">
                     <div className="timeline__item-header">
-                        <button className="timeline__arrow" type="button" id="item3" aria-labelledby="item3-name" aria-expanded="false" aria-controls="item3-ctrld" aria-haspopup="true" data-item="3">
+                        <button className="timeline__arrow"
+                        type="button"
+                        id="item3"
+                        aria-labelledby="item3-name"
+                        aria-expanded={expandedItems.includes('item3')}
+                        aria-controls="item3-ctrld"
+                        aria-haspopup="true"
+                        data-item="3"
+                        onClick={() => toggleItem('item3')}
+                        >
+
                             <svg className="timeline__arrow-icon" viewBox="0 0 24 24" width="24px" height="24px">
                                 <use href="#arrow" />
                             </svg>
                         </button>
                         <span className="timeline__dot"></span>
                         <span id="item3-name" className="timeline__meta">
-                            <time className="timeline__date" dateTime="2001-09-09">September 9, 2001</time><br/>
-                            <strong className="timeline__title">1 Billion Seconds</strong>
+                            <time className="timeline__date" dateTime="2001-09-09">Fevereiro 7, 2024</time><br/>
+                            <strong className="timeline__title">Paradigmas Imperativos & Declarativos: Processamento Matemático - Aula 3</strong>
                         </span>
                     </div>
-                    <div className="timeline__item-body" id="item3-ctrld" role="region" aria-labelledby="item3" aria-hidden="true">
+                    <div className={`timeline__item-body ${expandedItems.includes('item3') ? 'timeline__item-body--expanded' : ''}`} id="item3-ctrld" role="region" aria-labelledby="item3" aria-hidden={!expandedItems.includes('item3')}>
                         <div className="timeline__item-body-content">
                             <p className="timeline__item-p">Unix time reached 1,000,000,000 seconds at 1:46:40 AM UTC. The Danish UNIX User Group celebrated this in Copenhagen, Denmark.</p>
                         </div>
