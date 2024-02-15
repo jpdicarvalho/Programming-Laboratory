@@ -12,7 +12,8 @@ const Home = () =>{
             setExpandedItems([...expandedItems, itemId]);
         }
     };
-    
+/*======== Processamento de String ===========*/
+
     //Função para processar string - paradigma imperativo
     function contarVogaisImperativo() {
         // Obtém o valor inserido no elemento de entrada HTML com o id 'inputImperativo'
@@ -59,8 +60,45 @@ const Home = () =>{
     
         // Atualiza o conteúdo do elemento HTML com o id 'vogaisCountDeclarativo' para exibir o número de vogais encontradas
         document.getElementById('vogaisCountDeclarativo').textContent = 'Número de vogais Declarativo: ' + count;
+    } 
+/*======== Processamento Matemático ===========*/
+function calcularRaiz() {
+    // Obtém o valor inserido no elemento de entrada HTML com o id 'inputMatImperativo'
+    let inputMatImperativo = document.getElementById('inputMatImperativo').value;
+
+    // Converte o valor inserido para um número
+    let numero = parseFloat(inputMatImperativo);
+
+    // Verifica se o número é válido
+    if (!isNaN(numero)) {
+        let raiz = calcularRaizManual(numero);
+
+        // Atualiza o conteúdo do elemento HTML com o id 'raizImperativo' para exibir o resultado
+        document.getElementById('raizImperativo').textContent = 'Raiz quadrada: ' + raiz;
+    } else {
+        // Se o valor inserido não for um número válido, exibe uma mensagem de erro
+        document.getElementById('raizImperativo').textContent = 'Entrada inválida. Por favor, digite um número válido.';
     }
-    
+}
+
+function calcularRaizManual(numero) {
+    // Define um intervalo próximo ao valor real da raiz quadrada
+    let min = 0;
+    let max = numero;
+    let precisao = 0.0001; // Precisão desejada
+
+    // Aplica o método da bisseção para encontrar a raiz quadrada
+    while (max - min > precisao) {
+        let meio = (min + max) / 2;
+        if (meio * meio > numero) {
+            max = meio;
+        } else {
+            min = meio;
+        }
+    }
+
+    return (min + max) / 2;
+}
 
     return(
         <div>
@@ -183,9 +221,13 @@ const Home = () =>{
                         </span>
                     </div>
                     <div className={`timeline__item-body ${expandedItems.includes('item3') ? 'timeline__item-body--expanded' : ''}`} id="item3-ctrld" role="region" aria-labelledby="item3" aria-hidden={!expandedItems.includes('item3')}>
-                        <div className="timeline__item-body-content">
-                            <p className="timeline__item-p">Unix time reached 1,000,000,000 seconds at 1:46:40 AM UTC. The Danish UNIX User Group celebrated this in Copenhagen, Denmark.</p>
-                        </div>
+                    <div className="timeline__item-body-content inputBox">
+    <span>Calculo de raiz quadrada - Paradigma Imperativo</span>
+    <input type="text" id="inputMatImperativo" placeholder="Digite um número"/><br />
+    <p className="timeline__item-p" id="raizImperativo">Resultado:</p>
+    <button onClick={calcularRaiz}>Calcular Raiz Quadrada</button>
+</div>
+
                     </div>
                 </div>
                 <div className="timeline__item">
