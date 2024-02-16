@@ -5,7 +5,7 @@
 
 ## Este projeto consiste na criação de um site utilizando React, JavaScript e CSS. O objetivo principal é desenvolver uma timeline que contenha exemplos práticos de cada conteúdo abordado em sala de aula.
 ### A seguir, serão apresentadas as funções em JavaScript implementadas para cada exemplo criado:
-/*======== Processamento de String ========*/
+/*======== Processamento de String - Paradigma Imperativo ========*/
 
     //Função para processar string - paradigma imperativo
     
@@ -34,6 +34,8 @@
         // Atualiza o conteúdo do elemento HTML com o id 'vogaisCount' para exibir o número de vogais encontrado
         document.getElementById('vogaisCount').textContent = 'Número de vogais: ' + count;
     }
+    
+/*======== Processamento de String - Paradigma Declarativo ========*/
 
     //Função para processar string - paradigma declarativo
     function contarVogaisDeclarativo() {
@@ -56,7 +58,7 @@
         document.getElementById('vogaisCountDeclarativo').textContent = 'Número de vogais Declarativo: ' + count;
     } 
 
-/*======== Processamento Matemático ===========*/
+/*======== Processamento Matemático - Paradigma Imperativo===========*/
 
     // Função para calcular a raiz quadrada
     function calcularRaiz() {
