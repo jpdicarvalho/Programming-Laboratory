@@ -249,7 +249,7 @@ function dCalcularRaiz() {
                     </div>
 
                     <div className="timeline__item-body-content inputBox">
-                        <span>Cálculo de raiz quadrada - Paradigma Imperativo</span>
+                        <span>Cálculo de raiz quadrada - Paradigma Declarativo</span>
                         <input type="text" id="inputMatDeclarativo" placeholder="Digite um número"/><br />
                         <p className="timeline__item-p" id="raizDeclarativo">Resultado:</p>
                         <button onClick={dCalcularRaiz}>Calcular Raiz Quadrada</button>
