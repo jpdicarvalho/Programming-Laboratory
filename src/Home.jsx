@@ -266,8 +266,8 @@ function dCalcularRaiz() {
                         </button>
                         <span className="timeline__dot"></span>
                         <span id="item4-name" className="timeline__meta">
-                            <time className="timeline__date" dateTime="2009-02-13">February 13, 2009</time><br/>
-                            <strong className="timeline__title">1,234,567,890 Seconds</strong>
+                            <time className="timeline__date" dateTime="2009-02-13">000 000, 000</time><br/>
+                            <strong className="timeline__title">Locked</strong>
                         </span>
                     </div>
                     <div className="timeline__item-body" id="item4-ctrld" role="region" aria-labelledby="item4" aria-hidden="true">
@@ -285,8 +285,8 @@ function dCalcularRaiz() {
                         </button>
                         <span className="timeline__dot"></span>
                         <span id="item5-name" className="timeline__meta">
-                            <time className="timeline__date" dateTime="2033-05-18">May 18, 2033</time><br/>
-                            <strong className="timeline__title">2 Billion Seconds</strong>
+                            <time className="timeline__date" dateTime="2033-05-18">000 00, 000</time><br/>
+                            <strong className="timeline__title">Locked</strong>
                         </span>
                     </div>
                     <div className="timeline__item-body" id="item5-ctrld" role="region" aria-labelledby="item5" aria-hidden="true">
@@ -304,8 +304,8 @@ function dCalcularRaiz() {
                         </button>
                         <span className="timeline__dot"></span>
                         <span id="item6-name" className="timeline__meta">
-                            <time className="timeline__date" dateTime="2038-01-19">January 19, 2038</time><br/>
-                            <strong className="timeline__title">Unix Epochalypse</strong>
+                            <time className="timeline__date" dateTime="2038-01-19">000 00, 0000</time><br/>
+                            <strong className="timeline__title">Locked</strong>
                         </span>
                     </div>
                     <div className="timeline__item-body" id="item6-ctrld" role="region" aria-labelledby="item6" aria-hidden="true">
