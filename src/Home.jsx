@@ -62,42 +62,62 @@ const Home = () =>{
         document.getElementById('vogaisCountDeclarativo').textContent = 'Número de vogais Declarativo: ' + count;
     } 
 /*======== Processamento Matemático ===========*/
-function calcularRaiz() {
-    // Obtém o valor inserido no elemento de entrada HTML com o id 'inputMatImperativo'
-    let inputMatImperativo = document.getElementById('inputMatImperativo').value;
 
-    // Converte o valor inserido para um número
-    let numero = parseFloat(inputMatImperativo);
+    // Função para calcular a raiz quadrada
+    function iCalcularRaiz() {
+        // Obtém o valor inserido no elemento de entrada HTML com o id 'inputMatImperativo'
+        let inputMatImperativo = document.getElementById('inputMatImperativo').value;
 
-    // Verifica se o número é válido
-    if (!isNaN(numero)) {
-        let raiz = calcularRaizManual(numero);
+        // Converte o valor inserido para um número
+        let numero = parseFloat(inputMatImperativo);
 
-        // Atualiza o conteúdo do elemento HTML com o id 'raizImperativo' para exibir o resultado
-        document.getElementById('raizImperativo').textContent = 'Raiz quadrada: ' + raiz;
-    } else {
-        // Se o valor inserido não for um número válido, exibe uma mensagem de erro
-        document.getElementById('raizImperativo').textContent = 'Entrada inválida. Por favor, digite um número válido.';
-    }
-}
+        // Verifica se o número é válido
+        if (!isNaN(numero)) {
+            // Calcula a raiz quadrada usando o método de bisseção
+            let raiz = calcularRaizManual(numero);
 
-function calcularRaizManual(numero) {
-    // Define um intervalo próximo ao valor real da raiz quadrada
-    let min = 0;
-    let max = numero;
-    let precisao = 0.0001; // Precisão desejada
-
-    // Aplica o método da bisseção para encontrar a raiz quadrada
-    while (max - min > precisao) {
-        let meio = (min + max) / 2;
-        if (meio * meio > numero) {
-            max = meio;
+            // Atualiza o conteúdo do elemento HTML com o id 'raizImperativo' para exibir o resultado
+            document.getElementById('raizImperativo').textContent = 'Raiz quadrada: ' + raiz;
         } else {
-            min = meio;
+            // Se o valor inserido não for um número válido, exibe uma mensagem de erro
+            document.getElementById('raizImperativo').textContent = 'Entrada inválida. Por favor, digite um número válido.';
         }
     }
 
-    return (min + max) / 2;
+    // Função para calcular a raiz quadrada usando o método de bisseção
+    function calcularRaizManual(numero) {
+        // Define um intervalo próximo ao valor real da raiz quadrada
+        let min = 0;
+        let max = numero;
+        let precisao = 0.0001; // Precisão desejada
+
+        // Aplica o método da bisseção para encontrar a raiz quadrada
+        while (max - min > precisao) {
+            let meio = (min + max) / 2;
+            if (meio * meio > numero) {
+                max = meio;
+            } else {
+                min = meio;
+            }
+        }
+
+        // Retorna a média entre os valores mínimo e máximo como a raiz quadrada
+        return (min + max) / 2;
+}
+
+// Função para calcular a raiz quadrada - paradigma declarativo
+function dCalcularRaiz() {
+    // Obtém o valor inserido no elemento de entrada HTML com o id 'inputMatDeclarativo'
+    let inputMatDeclarativo = document.getElementById('inputMatDeclarativo').value;
+
+    // Converte o valor inserido para um número
+    let numero = parseFloat(inputMatDeclarativo);
+
+    // Verifica se o número é válido e não negativo
+    let raizQuadrada = (!isNaN(numero) && numero >= 0) ? Math.sqrt(numero) : 'Entrada inválida. Por favor, digite um número válido e não negativo.';
+
+    // Atualiza o conteúdo do elemento HTML com o id 'raizDeclarativo' para exibir o resultado
+    document.getElementById('raizDeclarativo').textContent = 'Raiz quadrada: ' + raizQuadrada;
 }
 
     return(
@@ -222,11 +242,18 @@ function calcularRaizManual(numero) {
                     </div>
                     <div className={`timeline__item-body ${expandedItems.includes('item3') ? 'timeline__item-body--expanded' : ''}`} id="item3-ctrld" role="region" aria-labelledby="item3" aria-hidden={!expandedItems.includes('item3')}>
                     <div className="timeline__item-body-content inputBox">
-    <span>Calculo de raiz quadrada - Paradigma Imperativo</span>
-    <input type="text" id="inputMatImperativo" placeholder="Digite um número"/><br />
-    <p className="timeline__item-p" id="raizImperativo">Resultado:</p>
-    <button onClick={calcularRaiz}>Calcular Raiz Quadrada</button>
-</div>
+                        <span>Cálculo de raiz quadrada - Paradigma Imperativo</span>
+                        <input type="text" id="inputMatImperativo" placeholder="Digite um número"/><br />
+                        <p className="timeline__item-p" id="raizImperativo">Resultado:</p>
+                        <button onClick={iCalcularRaiz}>Calcular Raiz Quadrada</button>
+                    </div>
+
+                    <div className="timeline__item-body-content inputBox">
+                        <span>Cálculo de raiz quadrada - Paradigma Imperativo</span>
+                        <input type="text" id="inputMatDeclarativo" placeholder="Digite um número"/><br />
+                        <p className="timeline__item-p" id="raizDeclarativo">Resultado:</p>
+                        <button onClick={dCalcularRaiz}>Calcular Raiz Quadrada</button>
+                    </div>
 
                     </div>
                 </div>
