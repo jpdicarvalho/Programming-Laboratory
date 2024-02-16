@@ -101,3 +101,20 @@
         // Retorna a média entre os valores mínimo e máximo como a raiz quadrada
         return (min + max) / 2;
 }
+
+/*======== Processamento Matemático - Paradigma Declarativo ===========*/
+
+    // Função para calcular a raiz quadrada - paradigma declarativo
+    function dCalcularRaiz() {
+        // Obtém o valor inserido no elemento de entrada HTML com o id 'inputMatDeclarativo'
+        let inputMatDeclarativo = document.getElementById('inputMatDeclarativo').value;
+    
+        // Converte o valor inserido para um número
+        let numero = parseFloat(inputMatDeclarativo);
+    
+        // Verifica se o número é válido e não negativo
+        let raizQuadrada = (!isNaN(numero) && numero >= 0) ? Math.sqrt(numero) : 'Entrada inválida. Por favor, digite um número válido e não negativo.';
+    
+        // Atualiza o conteúdo do elemento HTML com o id 'raizDeclarativo' para exibir o resultado
+        document.getElementById('raizDeclarativo').textContent = 'Raiz quadrada: ' + raizQuadrada;
+}
