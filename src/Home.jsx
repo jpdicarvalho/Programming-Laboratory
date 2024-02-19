@@ -162,19 +162,36 @@ function dCalcularRaiz() {
                     <div className={`timeline__item-body ${expandedItems.includes('item1') ? 'timeline__item-body--expanded' : ''}`} id="item1-ctrld" role="region" aria-labelledby="item1" aria-hidden={!expandedItems.includes('item1')}>
                         <div className="timeline__item-body-content">
                             
-                            <h3>JavaScript</h3>
-                            <p className="timeline__item-p">
-                            <strong>Imperativo:</strong> Descreve passo a passo como o programa deve executar as tarefas, usando instruções sequenciais e estruturas de controle.<br/>
-                                <strong>Ex:</strong> Desenvolvimento de um algoritmo de ordenação como o Bubble Sort. <br />
-                            <strong>Declarativo:</strong> Define o que o programa deve realizar, focando nos resultados desejados em vez dos detalhes de implementação.<br/>
-                                <strong>Ex:</strong> Construção de uma interface de usuário (UI) utilizando bibliotecas como React.js, onde a estrutura e o comportamento são declarados por meio de componentes. <br />
-                            <strong>Orientado a Objetos:</strong> Organiza o código em torno de objetos que contêm propriedades e métodos, facilitando a reutilização e a encapsulação de dados.<br/>
-                                <strong>Ex:</strong> Desenvolvimento de um sistema de gerenciamento de tarefas, onde cada tarefa é representada por um objeto com propriedades e métodos específicos. <br />
-                            <strong>Event-Driven:</strong> Baseia-se na manipulação de eventos do usuário e do sistema, respondendo a esses eventos de forma assíncrona.<br/>
-                                <strong>Ex:</strong> Criação de um sistema de notificações em tempo real em uma aplicação web, onde eventos como novas mensagens ou atualizações são transmitidos e processados pelos clientes. <br />
-                            <strong>Assíncrono:</strong> Lida com operações que não bloqueiam a execução do programa, utilizando callbacks, Promises e async/await para lidar com tarefas assíncronas de forma eficiente.<br/>
-                            <strong>Ex:</strong> Realização de chamadas de API assíncronas em uma aplicação web utilizando Promises ou async/await, permitindo que o programa continue executando outras tarefas enquanto aguarda a resposta da API. <br />
-                            </p>
+                            <h3 >JavaScript</h3>
+
+                                <div className="container__card">
+                            <div className="card">
+                                <h4>Imperativo</h4>
+                                Descreve passo a passo como o programa deve executar as tarefas, usando instruções sequenciais e estruturas de controle.<br/>
+                                <h4>Cenário de uso</h4>
+                                Desenvolvimento de um algoritmo de ordenação como o Bubble Sort. <br />
+                            </div>
+
+                            <div className="card">
+                                <h4>Declarativo</h4> Define o que o programa deve realizar, focando nos resultados desejados em vez dos detalhes de implementação.<br/>
+                                <h4>Cenário de uso</h4> Construção de uma interface de usuário (UI) utilizando bibliotecas como React.js, onde a estrutura e o comportamento são declarados por meio de componentes. <br />
+                            </div>
+
+                            <div className="card">
+                                <h4>Orientado a Objetos</h4> Organiza o código em torno de objetos que contêm propriedades e métodos, facilitando a reutilização e a encapsulação de dados.<br/>
+                                <h4>Cenário de uso</h4> Desenvolvimento de um sistema de gerenciamento de tarefas, onde cada tarefa é representada por um objeto com propriedades e métodos específicos. <br />
+                            </div>
+
+                            <div className="card">
+                                <h4>Event-Driven</h4> Baseia-se na manipulação de eventos do usuário e do sistema, respondendo a esses eventos de forma assíncrona.<br/>
+                                <h4>Cenário de uso</h4> Criação de um sistema de notificações em tempo real em uma aplicação web, onde eventos como novas mensagens ou atualizações são transmitidos e processados pelos clientes. <br />
+                            </div>
+                            <div className="card">
+                                <h4>Assíncrono</h4> Lida com operações que não bloqueiam a execução do programa, utilizando callbacks, Promises e async/await para lidar com tarefas assíncronas de forma eficiente.<br/>
+                                <h4>Cenário de uso</h4> Realização de chamadas de API assíncronas em uma aplicação web utilizando Promises ou async/await, permitindo que o programa continue executando outras tarefas enquanto aguarda a resposta da API. <br />
+                            </div>
+                            </div>
+                          
                         </div>
                     </div>
                 </div>
@@ -211,7 +228,7 @@ function dCalcularRaiz() {
                         <div className="timeline__item-body-content inputBox">
                         <span>Contagem de Vogais - Paradigma Declarativo</span>
                             <input type="text" id="inputDeclarativo" placeholder="Digite uma string"/><br />
-                            <p className="timeline__item-p" id="vogaisCountDeclarativo">Número de vogais Declarativo:</p>
+                            <p className="timeline__item-p" id="vogaisCountDeclarativo">Número de vogais:</p>
                             <button onClick={contarVogaisDeclarativo}>Processar String</button>
                         </div>
 
