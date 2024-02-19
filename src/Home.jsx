@@ -127,8 +127,9 @@ function dCalcularRaiz() {
                 <polyline points="7 10,12 15,17 10" fill="none" stroke="currentcolor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
             </symbol>
             </svg>
-
-            <h1>Programming Laboratory - Timeline</h1>
+            <h2 style={{textAlign: 'center', marginTop: '15PX'}}>Timeline</h2>
+            <h2 style={{textAlign: 'center'}}>Laboratório de Progamação</h2>
+            <h3 style={{marginBottom: '15px'}}>Author: João Pedro Braga de Carvalho</h3>
 
             <div id="timeline" className="timeline">
                 <div className="btn-group">
@@ -161,8 +162,6 @@ function dCalcularRaiz() {
                     </div>
                     <div className={`timeline__item-body ${expandedItems.includes('item1') ? 'timeline__item-body--expanded' : ''}`} id="item1-ctrld" role="region" aria-labelledby="item1" aria-hidden={!expandedItems.includes('item1')}>
                         <div className="timeline__item-body-content">
-                            
-                            <h3 >JavaScript</h3>
 
                                 <div className="container__card">
                             <div className="card">

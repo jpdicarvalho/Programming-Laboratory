@@ -226,6 +226,7 @@ h1, h3, h4{
 .card {
 	color: var(--bg);
 	background: black;
+	color: #f6f6f6;
 	backdrop-filter: blur(10px); /* Aplicar desfoque ao fundo */
 	border-radius: 12px;
 	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra suave */
@@ -234,10 +235,19 @@ h1, h3, h4{
 	height: auto;
 	width: 250px;
 	text-align: justify;
-  }
-  .card p {
-	color: #f0f0f0;
-  }
+}
   h4{
-	color: rebeccapurple;
+	text-align: left;
+	color: rgb(77, 75, 80);
   }
+
+.container__card::-webkit-scrollbar {
+    width: 7px;
+}
+.container__card::-webkit-scrollbar-thumb {
+    background: #49484c; 
+    border-radius: 5px;
+}
+.container__card::-webkit-scrollbar-thumb:hover {
+    background: #f6f6f6; 
+}
