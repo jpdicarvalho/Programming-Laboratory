@@ -121,15 +121,15 @@
 
 /*======== Problemas em Paradigmas Imperativos: Geometria Computacional ===========*/
 
-// Função chamada quando o usuário pressiona o botão do mouse
-    const startDrawing = (event) => {
-        setIsDrawing(true); // Define que o usuário está desenhando
-        const canvas = canvasRef.current;
-        const rect = canvas.getBoundingClientRect();
-        // Calcula as coordenadas iniciais do desenho em relação ao canvas
-        startX = event.clientX - rect.left;
-        startY = event.clientY - rect.top;
-    }
+    // Função chamada quando o usuário pressiona o botão do mouse
+        const startDrawing = (event) => {
+            setIsDrawing(true); // Define que o usuário está desenhando
+            const canvas = canvasRef.current;
+            const rect = canvas.getBoundingClientRect();
+            // Calcula as coordenadas iniciais do desenho em relação ao canvas
+            startX = event.clientX - rect.left;
+            startY = event.clientY - rect.top;
+        }
 
     // Função chamada quando o usuário solta o botão do mouse
     const stopDrawing = () => {
