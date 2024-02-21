@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Canvas from './Canvas';
 import './Home.css';
 
 const Home = () =>{
@@ -275,20 +276,31 @@ function dCalcularRaiz() {
                 </div>
                 <div className="timeline__item">
                     <div className="timeline__item-header">
-                        <button className="timeline__arrow" type="button" id="item4" aria-labelledby="item4-name" aria-expanded="false" aria-controls="item4-ctrld" aria-haspopup="true" data-item="4">
+                        <button className="timeline__arrow"
+                        type="button" id="item4"
+                        aria-labelledby="item4-name"
+                        aria-expanded={expandedItems.includes('item4')}
+                        aria-controls="item4-ctrld"
+                        aria-haspopup="true"
+                        data-item="4"
+                        onClick={() => toggleItem('item4')}
+                        >
                             <svg className="timeline__arrow-icon" viewBox="0 0 24 24" width="24px" height="24px">
                                 <use href="#arrow" />
                             </svg>
                         </button>
                         <span className="timeline__dot"></span>
                         <span id="item4-name" className="timeline__meta">
-                            <time className="timeline__date" dateTime="2009-02-13">000 000, 000</time><br/>
-                            <strong className="timeline__title">Locked</strong>
+                            <time className="timeline__date" dateTime="2009-02-13">Fevereiro 14, 2024</time><br/>
+                            <strong className="timeline__title">Problemas em Paradigmas Imperativos: Geometria Computacional - Aula 4</strong>
                         </span>
                     </div>
-                    <div className="timeline__item-body" id="item4-ctrld" role="region" aria-labelledby="item4" aria-hidden="true">
+                    <div className={`timeline__item-body ${expandedItems.includes('item4') ? 'timeline__item-body--expanded' : ''}`} id="item4-ctrld" role="region" aria-labelledby="item4" aria-hidden={!expandedItems.includes('item4')}>
                         <div className="timeline__item-body-content">
-                            <p className="timeline__item-p">At 11:31:30 PM UTC, the digits of the time were 1234567890. This was celebrated worldwide, and even Google had a <a href="https://www.google.com/logos/unix1234567890.gif" target="_blank" rel="noopener">doodle</a> for it.</p>
+                            <h4>Nesta aula, foi solicitado a implementação de exmplos práticos com uso de bibliotecas gráficas. Sendo assim, segue abaixo um 'quadro' desenhavel
+                                implementado com o canvas:
+                            </h4>
+                            <Canvas />
                         </div>
                     </div>
                 </div>
