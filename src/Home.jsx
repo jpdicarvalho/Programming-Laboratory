@@ -297,7 +297,7 @@ function dCalcularRaiz() {
                     </div>
                     <div className={`timeline__item-body ${expandedItems.includes('item4') ? 'timeline__item-body--expanded' : ''}`} id="item4-ctrld" role="region" aria-labelledby="item4" aria-hidden={!expandedItems.includes('item4')}>
                         <div className="timeline__item-body-content">
-                            <h4>Nesta aula, foi solicitado a implementação de exmplos práticos com uso de bibliotecas gráficas. Sendo assim, segue abaixo um 'quadro' desenhavel
+                            <h4>Nesta aula, foi solicitado a implementação de exmplos práticos com uso de bibliotecas gráficas. Sendo assim, segue abaixo um 'quadro' desenhável
                                 implementado com o canvas:
                             </h4>
                             <Canvas />
