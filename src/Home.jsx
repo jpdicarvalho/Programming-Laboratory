@@ -121,6 +121,75 @@ const Home = () =>{
         document.getElementById('raizDeclarativo').textContent = 'Raiz quadrada: ' + raizQuadrada;
     }
 
+//=-=-=-= 2ª Avaliação =-=-=-=
+
+/*======== Lista Duplamente Encadeada ===========*/
+// Define the structure of a node in the doubly linked list
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.prev = null;
+        this.next = null;
+    }
+}
+const [head, setHead] = useState(null);
+    const [inputValue, setInputValue] = useState('');
+    const [listValues, setListValues] = useState([]);
+
+    // Function to insert a node at the end of the doubly linked list
+    const insertAtEnd = (data) => {
+        const newNode = new Node(data);
+
+        if (!head) {
+            setHead(newNode);
+        } else {
+            let current = head;
+            while (current.next) {
+                current = current.next;
+            }
+            current.next = newNode;
+            newNode.prev = current;
+        }
+
+        setListValues([...listValues, data]);
+        setInputValue('');
+    };
+
+    // Function to delete a node with a specific value from the doubly linked list
+    const deleteNode = (data) => {
+        if (!head) {
+            return;
+        }
+
+        let current = head;
+        while (current) {
+            if (current.data === data) {
+                if (current === head) {
+                    setHead(current.next);
+                    if (current.next) {
+                        current.next.prev = null;
+                    }
+                } else {
+                    if (current.prev) {
+                        current.prev.next = current.next;
+                    }
+                    if (current.next) {
+                        current.next.prev = current.prev;
+                    }
+                }
+                setListValues(listValues.filter(item => item !== data));
+                break;
+            }
+            current = current.next;
+        }
+    };
+
+    // Function to handle changes in the input field
+    const handleInputChange = (e) => {
+        setInputValue(e.target.value);
+    };
+
+
     return(
         <div>
             <svg display="none">
@@ -304,41 +373,51 @@ const Home = () =>{
                         </div>
                     </div>
                 </div>
+
+                <h2 style={{marginTop: '20px'}}>2ª Avaliação</h2>
+                
                 <div className="timeline__item">
                     <div className="timeline__item-header">
-                        <button className="timeline__arrow" type="button" id="item5" aria-labelledby="item5-name" aria-expanded="false" aria-controls="item5-ctrld" aria-haspopup="true" data-item="5">
+                        <button className="timeline__arrow"
+                        type="button" id="item5"
+                        aria-labelledby="item5-name"
+                        aria-expanded={expandedItems.includes('item5')}
+                        aria-controls="item5-ctrld"
+                        aria-haspopup="true"
+                        data-item="5"
+                        onClick={() => toggleItem('item5')}
+                        >
                             <svg className="timeline__arrow-icon" viewBox="0 0 24 24" width="24px" height="24px">
                                 <use href="#arrow" />
                             </svg>
                         </button>
                         <span className="timeline__dot"></span>
                         <span id="item5-name" className="timeline__meta">
-                            <time className="timeline__date" dateTime="2033-05-18">000 00, 000</time><br/>
-                            <strong className="timeline__title">Locked</strong>
+                            <time className="timeline__date" dateTime="2009-02-13">Fevereiro 21, 2024</time><br/>
+                            <strong className="timeline__title">Problemas em Paradigmas Imperativos: Estruturas de Dados - Aula 6</strong>
                         </span>
                     </div>
-                    <div className="timeline__item-body" id="item5-ctrld" role="region" aria-labelledby="item5" aria-hidden="true">
+                    <div className={`timeline__item-body ${expandedItems.includes('item5') ? 'timeline__item-body--expanded' : ''}`} id="item5-ctrld" role="region" aria-labelledby="item5" aria-hidden={!expandedItems.includes('item5')}>
                         <div className="timeline__item-body-content">
-                            <p className="timeline__item-p">Unix time will reach 2,000,000,000 seconds at 3:33:20 AM UTC.</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="timeline__item">
-                    <div className="timeline__item-header">
-                        <button className="timeline__arrow" type="button" id="item6" aria-labelledby="item6-name" aria-expanded="false" aria-controls="item6-ctrld" aria-haspopup="true" data-item="6">
-                            <svg className="timeline__arrow-icon" viewBox="0 0 24 24" width="24px" height="24px">
-                                <use href="#arrow" />
-                            </svg>
-                        </button>
-                        <span className="timeline__dot"></span>
-                        <span id="item6-name" className="timeline__meta">
-                            <time className="timeline__date" dateTime="2038-01-19">000 00, 0000</time><br/>
-                            <strong className="timeline__title">Locked</strong>
-                        </span>
-                    </div>
-                    <div className="timeline__item-body" id="item6-ctrld" role="region" aria-labelledby="item6" aria-hidden="true">
-                        <div className="timeline__item-body-content">
-                            <p className="timeline__item-p">Also known as the year 2038 problem, clocks running on a 32-bit signed integer will flip from 3:14:08 AM UTC on this day to 8:45:52 PM UTC on December 13, 1901. Therefore, values only from -2,147,483,648 to 2,147,483,647 for the second are supported.</p>
+                            <h4>Para essa aula, foi solicitado a implementação de operações de inserção e deleção de elementos em uma lista duplamente encadeada,
+                                sem usar de bibliotecas para implementação da estrutura de dados e das operações.
+                            </h4>
+                            <div className="doubly-linked-list">
+                                <p style={{textAlign: 'Center', fontWeight: 'bold'}}>Add element to the list</p>
+                                <div className="input_box_list">
+                                <button className='Btn__add__elemente' onClick={() => insertAtEnd(inputValue)}>Insert</button>
+                                <input type="text" value={inputValue} onChange={handleInputChange} />
+                                    
+                                </div>
+                                <ul className="list-elements">
+                                    {listValues.map((value, index) => (
+                                        <div key={index} className='container__element' >
+                                            <button className='Btn__delete__elemente' onClick={() => deleteNode(value)}>Delete</button>
+                                            <div className='element'> {value} </div> 
+                                        </div>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

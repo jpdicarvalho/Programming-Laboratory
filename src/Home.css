@@ -257,3 +257,54 @@ canvas {
     background-color: #fff;
     cursor: crosshair;
 }
+
+.input_box_list{
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	padding: 10px;
+}
+.input_box_list input{
+	width: 100%;
+	height: 40px;
+	border-radius: 10px;
+	border: 1px solid #000;
+	padding-left: 10px;
+	outline: none;
+}
+
+.Btn__add__elemente{
+	width: 100px;
+	height: 40px;
+	margin-right: 5px;
+	border-radius: 10px;
+	background: #0f0;
+	color: #f0f0f0;
+}
+.Btn__delete__elemente{
+	width: 100px;
+	height: 40px;
+	margin-right: 5px;
+	border-radius: 10px;
+	background: rgb(255, 0, 0);
+	color: #f0f0f0;
+	margin: 5px;
+}
+.container__element{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin: 5px;
+}
+.element{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #333;
+	width: 100%;
+	text-align: center;
+	border-radius: 10px;
+	color: #f0f0f0;
+	height: 40px;
+}
