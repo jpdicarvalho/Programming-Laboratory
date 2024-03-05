@@ -5,6 +5,9 @@
 
 ## Este projeto consiste na criação de um site utilizando React, JavaScript e CSS. O objetivo principal é desenvolver uma timeline que contenha exemplos práticos de cada conteúdo abordado em sala de aula.
 ### A seguir, serão apresentadas as funções em JavaScript implementadas para cada exemplo criado:
+---
+# >> 1ª Avaliação
+
 /*======== Processamento de String - Paradigma Imperativo ========*/
 
     //Função para processar string - paradigma imperativo
@@ -160,3 +163,73 @@
         startX = x;
         startY = y;
     }
+---
+# >> 2ª Avaliação
+### Lista Duplamente Encadeada com operações de inserção e deleção de elementos.
+
+/*======== Problemas em Paradigmas Imperativos: Estruturas de Dados. ===========*/
+
+    //Classe de criação do nó
+    class Node {
+        constructor(data) {
+            this.data = data;
+            this.prev = null;
+            this.next = null;
+        }
+    }
+    const [head, setHead] = useState(null);
+    const [inputValue, setInputValue] = useState('');
+    const [listValues, setListValues] = useState([]);
+
+    // Função para inserir um nó no final da lista duplamente encadeada
+    const insertAtEnd = (data) => {
+        const newNode = new Node(data);
+
+        if (!head) {
+            setHead(newNode);
+        } else {
+            let current = head;
+            while (current.next) {
+                current = current.next;
+            }
+            current.next = newNode;
+            newNode.prev = current;
+        }
+
+        setListValues([...listValues, data]);
+        setInputValue('');
+    };
+
+    // Função para deletar um nó vom valor específico da lista duplamente encadeada
+    const deleteNode = (data) => {
+        if (!head) {
+            return;
+        }
+
+        let current = head;
+        while (current) {
+            if (current.data === data) {
+                if (current === head) {
+                    setHead(current.next);
+                    if (current.next) {
+                        current.next.prev = null;
+                    }
+                } else {
+                    if (current.prev) {
+                        current.prev.next = current.next;
+                    }
+                    if (current.next) {
+                        current.next.prev = current.prev;
+                    }
+                }
+                setListValues(listValues.filter(item => item !== data));
+                break;
+            }
+            current = current.next;
+        }
+    };
+
+    // Função para lidar com mudanças no input
+    const handleInputChange = (e) => {
+        setInputValue(e.target.value);
+    };
