@@ -4,6 +4,9 @@
 ## Author: João Pedro Braga de Carvalho
 
 ## Este projeto consiste na criação de um site utilizando React, JavaScript e CSS. O objetivo principal é desenvolver uma timeline que contenha exemplos práticos de cada conteúdo abordado em sala de aula.
+
+## Outrossim, vale ressaltar que os tópicos estão devidamente organizados em suas respectivas avalições propostas.
+
 ### A seguir, serão apresentadas as funções em JavaScript implementadas para cada exemplo criado:
 ---
 # >> 1ª Avaliação
@@ -165,9 +168,9 @@
     }
 ---
 # >> 2ª Avaliação
-### Lista Duplamente Encadeada com operações de inserção e deleção de elementos.
 
 /*======== Problemas em Paradigmas Imperativos: Estruturas de Dados. ===========*/
+//Lista Duplamente Encadeada com operações de inserção e deleção de elementos.
 
     //Classe de criação do nó
     class Node {
