@@ -168,9 +168,9 @@
     }
 ---
 # >> 2ª Avaliação
+### Lista Duplamente Encadeada com operações de inserção e deleção de elementos.
 
 /*======== Problemas em Paradigmas Imperativos: Estruturas de Dados. ===========*/
-//Lista Duplamente Encadeada com operações de inserção e deleção de elementos.
 
     //Classe de criação do nó
     class Node {
