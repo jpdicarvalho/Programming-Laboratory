@@ -3,11 +3,12 @@
 ## Link do site: https://jpdicarvalho.github.io/Programming-Laboratory/
 ## Author: João Pedro Braga de Carvalho
 
-## Este projeto consiste na criação de um site utilizando React, JavaScript e CSS. O objetivo principal é desenvolver uma timeline que contenha exemplos práticos de cada conteúdo abordado em sala de aula.
+Este projeto consiste na criação de um site utilizando React, JavaScript e CSS. O objetivo principal é desenvolver uma timeline que contenha exemplos práticos de cada conteúdo abordado em sala de aula.
 
-## Outrossim, vale ressaltar que os tópicos estão devidamente organizados em suas respectivas avalições propostas.
+Outrossim, vale ressaltar que os tópicos estão devidamente organizados em suas respectivas avalições propostas.
 
-### A seguir, serão apresentadas as funções em JavaScript implementadas para cada exemplo criado:
+A seguir, serão apresentadas as funções em JavaScript implementadas para cada exemplo criado:
+
 ---
 # >> 1ª Avaliação
 
