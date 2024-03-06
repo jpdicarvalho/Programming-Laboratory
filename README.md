@@ -11,7 +11,7 @@
 ---
 # >> 1ª Avaliação
 
-/*======== Processamento de String - Paradigma Imperativo ========*/
+### Processamento de String - Paradigma Imperativo
 
     //Função para processar string - paradigma imperativo
     
@@ -41,7 +41,7 @@
         document.getElementById('vogaisCount').textContent = 'Número de vogais: ' + count;
     }
     
-/*======== Processamento de String - Paradigma Declarativo ========*/
+### Processamento de String - Paradigma Declarativo
 
     //Função para processar string - paradigma declarativo
     function contarVogaisDeclarativo() {
@@ -64,7 +64,7 @@
         document.getElementById('vogaisCountDeclarativo').textContent = 'Número de vogais Declarativo: ' + count;
     } 
 
-/*======== Processamento Matemático - Paradigma Imperativo===========*/
+### Processamento Matemático - Paradigma Imperativo
 
     // Função para calcular a raiz quadrada
     function calcularRaiz() {
@@ -108,7 +108,7 @@
         return (min + max) / 2;
 }
 
-/*======== Processamento Matemático - Paradigma Declarativo ===========*/
+### Processamento Matemático - Paradigma Declarativo
 
     // Função para calcular a raiz quadrada - paradigma declarativo
     function dCalcularRaiz() {
@@ -125,7 +125,7 @@
         document.getElementById('raizDeclarativo').textContent = 'Raiz quadrada: ' + raizQuadrada;
 }
 
-/*======== Problemas em Paradigmas Imperativos: Geometria Computacional ===========*/
+### Problemas em Paradigmas Imperativos: Geometria Computacional
 
     // Função chamada quando o usuário pressiona o botão do mouse
         const startDrawing = (event) => {
@@ -168,9 +168,10 @@
     }
 ---
 # >> 2ª Avaliação
-### Lista Duplamente Encadeada com operações de inserção e deleção de elementos.
 
-/*======== Problemas em Paradigmas Imperativos: Estruturas de Dados. ===========*/
+### Problemas em Paradigmas Imperativos: Estruturas de Dados
+Lista Duplamente Encadeada com operações de inserção e deleção de elementos.
+
 
     //Classe de criação do nó
     class Node {
