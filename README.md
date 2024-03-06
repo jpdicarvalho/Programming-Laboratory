@@ -1,7 +1,7 @@
 # Laboratório de Programação - Disciplina
 ---
-## Link do site: https://jpdicarvalho.github.io/Programming-Laboratory/
 ## Author: João Pedro Braga de Carvalho
+## Link do site: https://jpdicarvalho.github.io/Programming-Laboratory/
 
 Este projeto consiste na criação de um site utilizando React, JavaScript e CSS. O objetivo principal é desenvolver uma timeline que contenha exemplos práticos de cada conteúdo abordado em sala de aula.
 
