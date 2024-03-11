@@ -238,3 +238,27 @@ Lista Duplamente Encadeada com operações de inserção e deleção de elemento
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
     };
+
+### Problemas em Paradigmas Funcionais: Processamento de Strings 
+
+// Definindo estado para a string de entrada e a string processada
+const [inputString, setInputString] = useState('');
+const [processedString, setProcessedString] = useState('');
+
+// Função para processar a string
+const processString = () => {
+    // Convertendo a string de entrada para letras minúsculas
+    const lowercaseString = inputString.toLowerCase();
+
+    // Removendo espaços em branco extras e dividindo a string em um array de palavras
+    const wordsArray = lowercaseString.trim().split(/\s+/);
+
+    // Revertendo a ordem das palavras no array
+    const reversedArray = wordsArray.reverse();
+
+    // Juntando as palavras do array em uma única string novamente
+    const reversedString = reversedArray.join(' ');
+
+    // Atualizando o estado da string processada
+    setProcessedString(reversedString);
+};

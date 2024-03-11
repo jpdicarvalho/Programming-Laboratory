@@ -229,7 +229,6 @@ const processString = () => {
     setProcessedString(reversedString);
 };
 
-
     return(
         <div>
             <svg display="none">
