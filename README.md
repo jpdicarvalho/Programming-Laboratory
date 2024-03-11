@@ -240,13 +240,15 @@ Lista Duplamente Encadeada com operações de inserção e deleção de elemento
     };
 
 ### Problemas em Paradigmas Funcionais: Processamento de Strings 
+    // Definindo estado para a string de entrada e a string processada
 
-// Definindo estado para a string de entrada e a string processada
-const [inputString, setInputString] = useState('');
-const [processedString, setProcessedString] = useState('');
+    const [inputString, setInputString] = useState('');
+    const [processedString, setProcessedString] = useState('');
 
-// Função para processar a string
-const processString = () => {
+    // Função para processar a string
+
+    const processString = () => {
+
     // Convertendo a string de entrada para letras minúsculas
     const lowercaseString = inputString.toLowerCase();
 
@@ -261,4 +263,4 @@ const processString = () => {
 
     // Atualizando o estado da string processada
     setProcessedString(reversedString);
-};
+    };
