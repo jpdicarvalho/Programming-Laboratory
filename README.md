@@ -264,3 +264,46 @@ Lista Duplamente Encadeada com operações de inserção e deleção de elemento
     // Atualizando o estado da string processada
     setProcessedString(reversedString);
     };
+
+### Problemas em Paradigmas Funcionais: Matemáticos
+
+
+    // Definindo estado para a entrada do número total de súditos, turnos e os convidados finais
+    const [numTotalSuditos, setNumTotalSuditos] = useState('');
+    const [numTurnos, setNumTurnos] = useState('');
+    const [convidados, setConvidados] = useState([]);
+    
+    function calcularConvidados(N, M, turnos) {
+        // Função para gerar uma lista de números de 1 a N
+        const gerarLista = (tamanho) => Array.from({ length: tamanho }, (_, i) => i + 1);
+        
+        // Função para remover os múltiplos de 'divisor' da lista
+        const removerMultiplos = (lista, divisor) => lista.filter((_, index) => (index + 1) % divisor !== 0);
+        
+        // Função para remover os súditos por turno
+        const removerPorTurno = (lista, Ti) => removerMultiplos(lista, Ti);
+
+        // Gera a lista inicial de súditos
+        const listaConvidados = gerarLista(N);
+
+        // Reduz a lista de convidados aplicando as remoções por turno
+        const convidadosFinais = turnos.reduce((convidados, Ti) => {
+            const listaRestante = removerPorTurno(convidados, Ti);
+            return listaRestante;
+        }, listaConvidados);
+
+        // Retorna os primeiros 10000 convidados, conforme a restrição
+        return convidadosFinais.slice(0, 10000);
+    }
+
+    /*Exemplo de entrada
+    const N = 10; // Número total de súditos
+    const M = 2; // Número de turnos
+    */
+
+    const turnos = [2, 3]; // Números sorteados em cada turno
+
+    const SortearConvidados = () => {
+        const  teste = calcularConvidados(numTotalSuditos, numTurnos, turnos);
+        setConvidados(teste)
+    }
