@@ -87,7 +87,7 @@ const Home = () =>{
 
     // Função para calcular a raiz quadrada usando o método de bisseção
     function calcularRaizManual(numero) {
-        // Define um intervalo próximo ao valor real da raiz quadrada
+        // Define um intervalo proximo ao valor real da raiz quadrada
         let min = 0;
         let max = numero;
         let precisao = 0.0001; // Precisão desejada
@@ -124,70 +124,110 @@ const Home = () =>{
 //=-=-=-= 2ª Avaliação =-=-=-=
 
 /*======== Lista Duplamente Encadeada ===========*/
-// Define the structure of a node in the doubly linked list
+
+// Classe para criar um nó
 class Node {
-    constructor(data) {
-        this.data = data;
-        this.prev = null;
-        this.next = null;
+    constructor(dados) {
+        this.dados = dados; // Valor armazenado no nó
+        this.anterior = null; // Referência para o nó anterior na lista
+        this.proximo = null; // Referência para o proximo nó na lista
     }
 }
-const [head, setHead] = useState(null);
-    const [inputValue, setInputValue] = useState('');
-    const [listValues, setListValues] = useState([]);
 
-    // Function to insert a node at the end of the doubly linked list
-    const insertAtEnd = (data) => {
-        const newNode = new Node(data);
+// Estado do componente para o nó inicial da lista
+const [cabeca, definirCabeca] = useState(null);
 
-        if (!head) {
-            setHead(newNode);
-        } else {
-            let current = head;
-            while (current.next) {
-                current = current.next;
-            }
-            current.next = newNode;
-            newNode.prev = current;
+// Estado do componente para o valor de entrada do usuário
+const [valorEntrada, definirValorEntrada] = useState('');
+
+// Estado do componente para os valores da lista
+const [valoresLista, definirValoresLista] = useState([]);
+
+// Função para inserir um nó no final da lista duplamente encadeada
+const inserirNoFinal = (dados) => {
+    const novoNo = new Node(dados); // Cria um novo nó com os dados fornecidos
+
+    if (!cabeca) { // Se a lista estiver vazia
+        definirCabeca(novoNo); // Define o novo nó como o nó inicial
+    } else {
+        let atual = cabeca;
+        while (atual.proximo) {
+            atual = atual.proximo; // Percorre a lista até encontrar o último nó
         }
+        atual.proximo = novoNo; // Define o proximo do último nó como o novo nó
+        novoNo.anterior = atual; // Define o nó anterior do novo nó como o último nó
+    }
 
-        setListValues([...listValues, data]);
-        setInputValue('');
-    };
+    definirValoresLista([...valoresLista, dados]); // Adiciona o valor à lista de valores
+    definirValorEntrada(''); // Limpa o valor de entrada
+};
 
-    // Function to delete a node with a specific value from the doubly linked list
-    const deleteNode = (data) => {
-        if (!head) {
-            return;
-        }
+const deletarNo = (dados) => {
+    // Verifica se a lista está vazia
+    if (!cabeca) { 
+        return; // Se estiver vazia, não há nada para excluir
+    }
 
-        let current = head;
-        while (current) {
-            if (current.data === data) {
-                if (current === head) {
-                    setHead(current.next);
-                    if (current.next) {
-                        current.next.prev = null;
-                    }
-                } else {
-                    if (current.prev) {
-                        current.prev.next = current.next;
-                    }
-                    if (current.next) {
-                        current.next.prev = current.prev;
-                    }
+    let atual = cabeca; // Começa a busca a partir da cabeça
+    while (atual) { // Enquanto houver um nó para verificar
+        // Se os dados do nó atual forem iguais aos dados fornecidos
+        if (atual.dados === dados) { 
+            // Se o nó atual for a cabeça
+            if (atual === cabeca) { 
+                definirCabeca(atual.proximo); // Define o próximo nó como cabeça
+                // Define o anterior do próximo nó como null se houver próximo nó
+                if (atual.proximo) { 
+                    atual.proximo.anterior = null; 
                 }
-                setListValues(listValues.filter(item => item !== data));
-                break;
+            } else {
+                // Define o próximo do nó anterior como o próximo do nó atual
+                if (atual.anterior) { 
+                    atual.anterior.proximo = atual.proximo; 
+                }
+                // Define o anterior do próximo nó como o anterior do nó atual
+                if (atual.proximo) { 
+                    atual.proximo.anterior = atual.anterior; 
+                } else {
+                    // Se atual for o último nó da lista, define o próximo do nó anterior como null
+                    atual.anterior.proximo = null; 
+                }
             }
-            current = current.next;
+            // Remove o dado da lista de valores
+            definirValoresLista(valoresLista.filter(item => item !== dados)); 
+            break; // Sai do loop após a exclusão
         }
-    };
+        atual = atual.proximo; // Move para o próximo nó
+    }
+};
 
-    // Function to handle changes in the input field
-    const handleInputChange = (e) => {
-        setInputValue(e.target.value);
-    };
+// Função para lidar com mudanças no input
+const lidarComMudancaDeInput = (e) => {
+    definirValorEntrada(e.target.value); // Atualiza o valor de entrada com o valor do input
+};
+
+/*======== Problemas em Paradigmas Funcionais: Processamento de Strings ===========*/
+
+// Definindo estado para a string de entrada e a string processada
+const [inputString, setInputString] = useState('');
+const [processedString, setProcessedString] = useState('');
+
+// Função para processar a string
+const processString = () => {
+    // Convertendo a string de entrada para letras minúsculas
+    const lowercaseString = inputString.toLowerCase();
+
+    // Removendo espaços em branco extras e dividindo a string em um array de palavras
+    const wordsArray = lowercaseString.trim().split(/\s+/);
+
+    // Revertendo a ordem das palavras no array
+    const reversedArray = wordsArray.reverse();
+
+    // Juntando as palavras do array em uma única string novamente
+    const reversedString = reversedArray.join(' ');
+
+    // Atualizando o estado da string processada
+    setProcessedString(reversedString);
+};
 
 
     return(
@@ -379,7 +419,7 @@ const [head, setHead] = useState(null);
                 <div className="timeline__item">
                     <div className="timeline__item-header">
                         <button className="timeline__arrow"
-                        type="button" id="item5"
+                        type="button" id=""
                         aria-labelledby="item5-name"
                         aria-expanded={expandedItems.includes('item5')}
                         aria-controls="item5-ctrld"
@@ -405,14 +445,15 @@ const [head, setHead] = useState(null);
                             <div className="doubly-linked-list">
                                 <p style={{textAlign: 'Center', fontWeight: 'bold'}}>Add element to the list</p>
                                 <div className="input_box_list">
-                                <button className='Btn__add__elemente' onClick={() => insertAtEnd(inputValue)}>Insert</button>
-                                <input type="text" value={inputValue} onChange={handleInputChange} />
+                                <button className='Btn__add__elemente' onClick={() => inserirNoFinal(valorEntrada)}>Insert</button>
+                                <input type="text" value={valorEntrada} onChange={lidarComMudancaDeInput} />
+                                
                                     
                                 </div>
                                 <ul className="list-elements">
-                                    {listValues.map((value, index) => (
+                                    {valoresLista.map((value, index) => (
                                         <div key={index} className='container__element' >
-                                            <button className='Btn__delete__elemente' onClick={() => deleteNode(value)}>Delete</button>
+                                            <button className='Btn__delete__elemente' onClick={() => deletarNo(value)}>Delete</button>
                                             <div className='element'> {value} </div> 
                                         </div>
                                     ))}
@@ -421,8 +462,59 @@ const [head, setHead] = useState(null);
                         </div>
                     </div>
                 </div>
+
+                <div className="timeline__item">
+                    <div className="timeline__item-header">
+                        <button className="timeline__arrow"
+                        type="button" id=""
+                        aria-labelledby="-name"
+                        aria-expanded={expandedItems.includes('')}
+                        aria-controls="-ctrld"
+                        aria-haspopup="true"
+                        data-item="5"
+                        onClick={() => toggleItem('')}
+                        >
+                            <svg className="timeline__arrow-icon" viewBox="0 0 24 24" width="24px" height="24px">
+                                <use href="#arrow" />
+                            </svg>
+                        </button>
+                        <span className="timeline__dot"></span>
+                        <span id="-name" className="timeline__meta">
+                            <time className="timeline__date" dateTime="2009-02-13">Fevereiro 28, 2024</time><br/>
+                            <strong className="timeline__title">Problemas em Paradigmas Funcionais: Processamento de Strings - Aula 7</strong>
+                        </span>
+                    </div>
+                    <div className={`timeline__item-body ${expandedItems.includes('') ? 'timeline__item-body--expanded' : ''}`} id="-ctrld" role="region" aria-labelledby="" aria-hidden={!expandedItems.includes('')}>
+                        <div className="timeline__item-body-content">
+                        <h4>
+                            Quando o botão "Processar" é clicado, a frase é processada da seguinte maneira:
+                                <ul>
+                                    <li>A frase é convertida para letras minúsculas.</li>
+                                    <li>Espaços em branco extras são removidos e a frase é dividida em um array de palavras.</li>
+                                    <li>A ordem das palavras no array é revertida.</li>
+                                    <li>As palavras são juntadas de volta em uma única string, que é exibida como a string processada.</li>
+                                </ul>
+                        </h4>
+                            <div className='input_box_list'>
+                                
+                                <input 
+                                    type="text" 
+                                    id="inputString" 
+                                    value={inputString} 
+                                    onChange={(e) => setInputString(e.target.value)} 
+                                />
+                            </div>
+                            <button onClick={processString} className='Btn__add__elemente'>Processar</button>
+                            {processedString && (
+                                <div>
+                                    <h3>String Processada:</h3>
+                                    <p>{processedString}</p>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
             </div>
-            
             </div>
     );
 }

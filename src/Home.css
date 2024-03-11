@@ -277,6 +277,7 @@ canvas {
 	width: 100px;
 	height: 40px;
 	margin-right: 5px;
+	padding: 3px;
 	border-radius: 10px;
 	background: #0f0;
 	color: #f0f0f0;
@@ -307,4 +308,7 @@ canvas {
 	border-radius: 10px;
 	color: #f0f0f0;
 	height: 40px;
+}
+ul{
+	margin-left: 5px;
 }
