@@ -229,10 +229,11 @@ const processString = () => {
     setProcessedString(reversedString);
 };
 
+/*======== Problemas em Paradigmas Funcionais: Matemáticos. ===========*/
 
 const [numTotalSuditos, setNumTotalSuditos] = useState('');
 const [numTurnos, setNumTurnos] = useState('');
-const [convidados, setConvidados] = useState('');
+const [convidados, setConvidados] = useState([]);
 
 function calcularConvidados(N, M, turnos) {
     // Função para gerar uma lista de números de 1 a N
@@ -265,9 +266,10 @@ const M = 2; // Número de turnos
 const turnos = [2, 3]; // Números sorteados em cada turno
 
 const SortearConvidados = () => {
-    setConvidados(calcularConvidados(numTotalSuditos, numTurnos, turnos))
+    const  teste = calcularConvidados(numTotalSuditos, numTurnos, turnos);
+    setConvidados(teste)
 }
- 
+
     return(
         <div>
             <svg display="none">
@@ -605,10 +607,25 @@ const SortearConvidados = () => {
                                 />
                             </div>
                             
-                            {convidados && (
-                                <div>
-                                    <h3>Convidados Sorteados:</h3>
-                                    <p>{convidados}</p>
+                            {convidados.length > 0 && (
+                                <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                                    <h3 style={{display: 'flex', marginLeft: '10px',
+                                                height: 'auto', justifyContent: 'center',
+                                                alignItems: 'center', padding: '3px',
+                                                borderRadius: '3px', color: '#000' }}>Convidados Sorteados</h3>
+                                    <div className="Box__item">
+                                    {convidados.map((item, index) =>
+                                    <div key={index}
+                                    style={{fontSize: '18px', margin: '5px',
+                                            display: 'flex', justifyContent: 'center',
+                                            alignItems: 'center', background: 'blue',
+                                            padding: '3px', borderRadius: '3px',
+                                            width: '30px', height: '30px', color: '#fff'}}>
+
+                                        <p>{item}</p>
+                                    </div>
+                                    )}
+                                    </div>  
                                 </div>
                             )}
                         </div>

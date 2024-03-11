@@ -312,3 +312,8 @@ canvas {
 ul{
 	margin-left: 5px;
 }
+.Box__item{
+	display: flex;
+	margin: 3px;
+	flex-wrap: wrap;
+}
