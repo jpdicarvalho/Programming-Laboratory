@@ -229,6 +229,45 @@ const processString = () => {
     setProcessedString(reversedString);
 };
 
+
+const [numTotalSuditos, setNumTotalSuditos] = useState('');
+const [numTurnos, setNumTurnos] = useState('');
+const [convidados, setConvidados] = useState('');
+
+function calcularConvidados(N, M, turnos) {
+    // Função para gerar uma lista de números de 1 a N
+    const gerarLista = (tamanho) => Array.from({ length: tamanho }, (_, i) => i + 1);
+    
+    // Função para remover os múltiplos de 'divisor' da lista
+    const removerMultiplos = (lista, divisor) => lista.filter((_, index) => (index + 1) % divisor !== 0);
+    
+    // Função para remover os súditos por turno
+    const removerPorTurno = (lista, Ti) => removerMultiplos(lista, Ti);
+
+    // Gera a lista inicial de súditos
+    const listaConvidados = gerarLista(N);
+
+    // Reduz a lista de convidados aplicando as remoções por turno
+    const convidadosFinais = turnos.reduce((convidados, Ti) => {
+        const listaRestante = removerPorTurno(convidados, Ti);
+        return listaRestante;
+    }, listaConvidados);
+
+    // Retorna os primeiros 10000 convidados, conforme a restrição
+    return convidadosFinais.slice(0, 10000);
+}
+
+/*Exemplo de entrada
+const N = 10; // Número total de súditos
+const M = 2; // Número de turnos
+*/
+
+const turnos = [2, 3]; // Números sorteados em cada turno
+
+const SortearConvidados = () => {
+    setConvidados(calcularConvidados(numTotalSuditos, numTurnos, turnos))
+}
+ 
     return(
         <div>
             <svg display="none">
@@ -418,7 +457,7 @@ const processString = () => {
                 <div className="timeline__item">
                     <div className="timeline__item-header">
                         <button className="timeline__arrow"
-                        type="button" id=""
+                        type="button" id="item5"
                         aria-labelledby="item5-name"
                         aria-expanded={expandedItems.includes('item5')}
                         aria-controls="item5-ctrld"
@@ -461,29 +500,28 @@ const processString = () => {
                         </div>
                     </div>
                 </div>
-
                 <div className="timeline__item">
                     <div className="timeline__item-header">
                         <button className="timeline__arrow"
-                        type="button" id=""
-                        aria-labelledby="-name"
-                        aria-expanded={expandedItems.includes('')}
-                        aria-controls="-ctrld"
+                        type="button" id="item6"
+                        aria-labelledby="item6-name"
+                        aria-expanded={expandedItems.includes('item6')}
+                        aria-controls="item6-ctrld"
                         aria-haspopup="true"
-                        data-item="5"
-                        onClick={() => toggleItem('')}
+                        data-item="6"
+                        onClick={() => toggleItem('item6')}
                         >
                             <svg className="timeline__arrow-icon" viewBox="0 0 24 24" width="24px" height="24px">
                                 <use href="#arrow" />
                             </svg>
                         </button>
                         <span className="timeline__dot"></span>
-                        <span id="-name" className="timeline__meta">
+                        <span id="item6-name" className="timeline__meta">
                             <time className="timeline__date" dateTime="2009-02-13">Fevereiro 28, 2024</time><br/>
                             <strong className="timeline__title">Problemas em Paradigmas Funcionais: Processamento de Strings - Aula 7</strong>
                         </span>
                     </div>
-                    <div className={`timeline__item-body ${expandedItems.includes('') ? 'timeline__item-body--expanded' : ''}`} id="-ctrld" role="region" aria-labelledby="" aria-hidden={!expandedItems.includes('')}>
+                    <div className={`timeline__item-body ${expandedItems.includes('item6') ? 'timeline__item-body--expanded' : ''}`} id="item6-ctrld" role="region" aria-labelledby="item6" aria-hidden={!expandedItems.includes('item6')}>
                         <div className="timeline__item-body-content">
                         <h4>
                             Quando o botão "Processar" é clicado, a frase é processada da seguinte maneira:
@@ -508,6 +546,69 @@ const processString = () => {
                                 <div>
                                     <h3>String Processada:</h3>
                                     <p>{processedString}</p>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+
+                <div className="timeline__item">
+                    <div className="timeline__item-header">
+                        <button className="timeline__arrow"
+                        type="button" id="item7"
+                        aria-labelledby="item7-name"
+                        aria-expanded={expandedItems.includes('item7')}
+                        aria-controls="item7-ctrld"
+                        aria-haspopup="true"
+                        data-item="7"
+                        onClick={() => toggleItem('item7')}
+                        >
+                            <svg className="timeline__arrow-icon" viewBox="0 0 24 24" width="24px" height="24px">
+                                <use href="#arrow" />
+                            </svg>
+                        </button>
+                        <span className="timeline__dot"></span>
+                        <span id="item7-name" className="timeline__meta">
+                            <time className="timeline__date" dateTime="2009-02-13">Março 6, 2024</time><br/>
+                            <strong className="timeline__title">Problemas em Paradigmas Funcionais: Matemáticos - Aula 8</strong>
+                        </span>
+                    </div>
+                    <div className={`timeline__item-body ${expandedItems.includes('item7') ? 'timeline__item-body--expanded' : ''}`} id="item7-ctrld" role="region" aria-labelledby="item7" aria-hidden={!expandedItems.includes('item7')}>
+                        <div className="timeline__item-body-content">
+                        <h4>
+                        Resolver de modo Funcional o problema da <a href="https://olimpiada.ic.unicamp.br/pratique/ps/2021/f3/festa/"> Festa Olímpica</a><br /><br />
+
+                        <ul># Resumo do Problema:
+                                    <li>o problema requer a implementação de um algoritmo eficiente que
+                                        determine os súditos convidados para a festa, seguindo as regras
+                                        estipuladas pela Lei Especial Sobre Comemoração das Olimpíadas,
+                                        considerando as restrições de entrada fornecidas.</li>
+                                </ul>
+                        </h4>
+                            <div className='input_box_list'>
+                            <button onClick={SortearConvidados} className='Btn__add__elemente'>Sortear</button>
+                                <input 
+                                style={{fontSize: '16px', width: '200px', marginRight: '5px'}}
+                                    type="text" 
+                                    id="numTotalSuditos" 
+                                    value={numTotalSuditos} 
+                                    placeholder='Número total de súditos'
+                                    onChange={(e) => setNumTotalSuditos(e.target.value)}
+                                />
+                                <input
+                                style={{fontSize: '16px', width: '150px'}}
+                                    type="text" 
+                                    id="numTurnos" 
+                                    value={numTurnos} 
+                                    placeholder='Número de turnos'
+                                    onChange={(e) => setNumTurnos(e.target.value)}
+                                />
+                            </div>
+                            
+                            {convidados && (
+                                <div>
+                                    <h3>Convidados Sorteados:</h3>
+                                    <p>{convidados}</p>
                                 </div>
                             )}
                         </div>
