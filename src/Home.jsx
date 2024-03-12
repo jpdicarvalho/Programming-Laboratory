@@ -60,7 +60,7 @@ const Home = () =>{
         }, 0);
     
         // Atualiza o conteúdo do elemento HTML com o id 'vogaisCountDeclarativo' para exibir o número de vogais encontradas
-        document.getElementById('vogaisCountDeclarativo').textContent = 'Número de vogais Declarativo: ' + count;
+        document.getElementById('vogaisCountDeclarativo').textContent = 'Número de vogais: ' + count;
     } 
 /*======== Processamento Matemático ===========*/
 
@@ -315,29 +315,35 @@ const SortearConvidados = () => {
 
                                 <div className="container__card">
                             <div className="card">
-                                <h4>Imperativo</h4>
-                                Descreve passo a passo como o programa deve executar as tarefas, usando instruções sequenciais e estruturas de controle.<br/>
-                                <h4>Cenário de uso</h4>
-                                Desenvolvimento de um algoritmo de ordenação como o Bubble Sort. <br />
+                                <h4 className='tittleParadigmas'>Imperativo</h4>
+                                <p className='text__paradigmas'>Descreve passo a passo como o programa deve executar as tarefas, usando instruções sequenciais e estruturas de controle.</p><br/>
+                                <h4 className='tittleParadigmas'>Cenário de uso</h4>
+                                <p className='text__paradigmas'>Desenvolvimento de um algoritmo de ordenação como o Bubble Sort.</p><br />
+                                <button className="saiba__mais"><a href="https://guia.dev/pt/pillars/languages-and-tools/programming-paradigms.html#imperativo">Saiba  mais</a></button>
                             </div>
 
                             <div className="card">
-                                <h4>Declarativo</h4> Define o que o programa deve realizar, focando nos resultados desejados em vez dos detalhes de implementação.<br/>
-                                <h4>Cenário de uso</h4> Construção de uma interface de usuário (UI) utilizando bibliotecas como React.js, onde a estrutura e o comportamento são declarados por meio de componentes. <br />
+                                <h4 className='tittleParadigmas'>Declarativo</h4>
+                                <p className='text__paradigmas'>Define o que o programa deve realizar, focando nos resultados desejados em vez dos detalhes de implementação.</p><br/>
+                                <h4 className='tittleParadigmas'>Cenário de uso</h4>
+                                <p className='text__paradigmas'>Construção de uma interface de usuário (UI) utilizando bibliotecas como React.js, onde a estrutura e o comportamento são declarados por meio de componentes.</p><br />
+                                <button className="saiba__mais"><a href="https://guia.dev/pt/pillars/languages-and-tools/programming-paradigms.html#declarativo">Saiba  mais</a></button>
                             </div>
 
                             <div className="card">
-                                <h4>Orientado a Objetos</h4> Organiza o código em torno de objetos que contêm propriedades e métodos, facilitando a reutilização e a encapsulação de dados.<br/>
-                                <h4>Cenário de uso</h4> Desenvolvimento de um sistema de gerenciamento de tarefas, onde cada tarefa é representada por um objeto com propriedades e métodos específicos. <br />
+                                <h4 className='tittleParadigmas'>Orientado a Objetos</h4>
+                                <p className='text__paradigmas'>Organiza o código em torno de objetos que contêm propriedades e métodos, facilitando a reutilização e a encapsulação de dados.</p><br/>
+                                <h4 className='tittleParadigmas'>Cenário de uso</h4>
+                                <p className='text__paradigmas'>Desenvolvimento de um sistema de gerenciamento de tarefas, onde cada tarefa é representada por um objeto com propriedades e métodos específicos.</p><br />
+                                <button className="saiba__mais"><a href="https://guia.dev/pt/pillars/languages-and-tools/programming-paradigms.html#orientacao-objeto">Saiba  mais</a></button>
                             </div>
 
                             <div className="card">
-                                <h4>Event-Driven</h4> Baseia-se na manipulação de eventos do usuário e do sistema, respondendo a esses eventos de forma assíncrona.<br/>
-                                <h4>Cenário de uso</h4> Criação de um sistema de notificações em tempo real em uma aplicação web, onde eventos como novas mensagens ou atualizações são transmitidos e processados pelos clientes. <br />
-                            </div>
-                            <div className="card">
-                                <h4>Assíncrono</h4> Lida com operações que não bloqueiam a execução do programa, utilizando callbacks, Promises e async/await para lidar com tarefas assíncronas de forma eficiente.<br/>
-                                <h4>Cenário de uso</h4> Realização de chamadas de API assíncronas em uma aplicação web utilizando Promises ou async/await, permitindo que o programa continue executando outras tarefas enquanto aguarda a resposta da API. <br />
+                                <h4 className='tittleParadigmas'>Funcional</h4>
+                                <p className='text__paradigmas'>Trata a computação como uma avaliação de funções matemáticas e que evita estados ou dados mutáveis.</p><br/>
+                                <h4 className='tittleParadigmas'>Cenário de uso</h4>
+                                <p className='text__paradigmas'>Filtrar produtos por categoria, Mapear preços para descontos ou Calcular total da compra</p><br />
+                                <button className="saiba__mais"><a href="https://guia.dev/pt/pillars/languages-and-tools/programming-paradigms.html#funcional">Saiba  mais</a></button>
                             </div>
                             </div>
                           
@@ -367,15 +373,16 @@ const SortearConvidados = () => {
                         </span>
                     </div>
                     <div className={`timeline__item-body ${expandedItems.includes('item2') ? 'timeline__item-body--expanded' : ''}`} id="item2-ctrld" role="region" aria-labelledby="item2" aria-hidden={!expandedItems.includes('item2')}>
+                        <h3># Contagem de Vogais</h3>
                         <div className="timeline__item-body-content inputBox">
-                            <span>Contagem de Vogais - Paradigma Imperativo</span>
+                            <span style={{marginTop: '10px'}}>Paradigma Imperativo</span>
                             <input type="text" id="inputImperativo" placeholder="Digite uma string"/><br />
                             <p className="timeline__item-p" id="vogaisCount">Número de vogais:</p>
                             <button onClick={contarVogaisImperativo}>Processar String</button>
                         </div>
 
                         <div className="timeline__item-body-content inputBox">
-                        <span>Contagem de Vogais - Paradigma Declarativo</span>
+                        <span style={{marginTop: '10px'}}>Paradigma Declarativo</span>
                             <input type="text" id="inputDeclarativo" placeholder="Digite uma string"/><br />
                             <p className="timeline__item-p" id="vogaisCountDeclarativo">Número de vogais:</p>
                             <button onClick={contarVogaisDeclarativo}>Processar String</button>

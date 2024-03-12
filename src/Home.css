@@ -144,40 +144,45 @@ h1, h3, h4{
 .timeline__item-body-content {
 	background: transparent;
 	opacity: 0;
-	padding: 0.5em 0.75em;
 	visibility: hidden;
 	transition:
 		opacity var(--trans-dur) var(--trans-timing),
 		visibility var(--trans-dur) steps(1,end);
 		overflow: hidden;
 }
-.inputBox{
-	display: flex;
-	flex-direction: column;
-	background: black;
-	color: #f0f0f0;
-	margin: 10px;
-	border-radius: 12px;
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    background: #e3e4e8;
+    color: #17181c;
+    margin: 10px;
+    border-radius: 12px;
+    border: 1px solid #000;
+    padding: 3px;
+    text-align: center;
+    height: 200px;
 }
-.inputBox input{
-	border: 1px solid rebeccapurple;
-	border-radius: 10px;
-	padding-left: 5px;
-	height: 40px;
-	width: 100%;
-	margin-top: 10px;
-	font-size: 16px;
-	background: transparent;
-	outline: none;
+.inputBox input {
+    border: 1px solid rgb(23 24 28);
+    border-radius: 10px;
+    padding-left: 5px;
+    height: 35px;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 16px;
+    background: transparent;
+    outline: none;
+    color: #17181c;
 }
-.inputBox button{
-	outline: none;
-	color: #f0f0f0;
-	border: 1px solid rebeccapurple;
-	background: transparent;
-	height: 40px;
-	transition: 0.5s;
-	border-radius: 6px;
+.inputBox button {
+    outline: none;
+    color: #f0f0f0;
+    border: 1px solid #17181c;
+    background: #333;
+    height: 40px;
+    transition: 0.5s;
+    border-radius: 6px;
+    margin-top: 20px;
 }
 .inputBox button:hover{
 	border-radius: 12px;
@@ -215,37 +220,59 @@ h1, h3, h4{
 	}
 }
 
-.container__card{
-	display: flex;
-	flex-direction: column;
-	width: 350px;
-	height: 400px;
-	overflow-y: scroll;
+.container__card {
+    display: flex;
+    flex-direction: column;
+    min-width: 275px;
+    height: 400px;
+    overflow-y: scroll;
+	overflow-x: hidden;
+    padding: 5px;
 }
 
 .card {
-	color: var(--bg);
-	background: black;
-	color: #f6f6f6;
-	backdrop-filter: blur(10px); /* Aplicar desfoque ao fundo */
-	border-radius: 12px;
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra suave */
-	padding: 10px;
-	margin: 10px;
-	height: auto;
-	width: 250px;
-	text-align: justify;
+    text-align: justify;
+    background: #e3e4e8;
+    color: #00000085;
+    border-radius: 12px;
+    box-shadow: -7px -6px 0px 0px #00000030;
+    padding: 5px;
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    height: auto;
+    min-width: 260px;
+    border: 1px solid #000;
 }
-  h4{
-	text-align: left;
-	color: rgb(77, 75, 80);
-  }
-
+.tittleParadigmas {
+    text-align: left;
+    color: rgb(13 13 13);
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    padding-left: 5px;
+}
+.text__paradigmas{
+	text-align: justify;
+	padding-left: 5px;
+	padding-right: 3px;
+}
+.saiba__mais {
+		margin-bottom: 5px; 	
+		padding: 5px;
+		border-radius: 10px;
+		background: #17181c;	
+		width: 100%;
+		
+}
+a{
+	text-decoration: none;
+	color: #e3e4e8;
+}
 .container__card::-webkit-scrollbar {
     width: 7px;
 }
 .container__card::-webkit-scrollbar-thumb {
-    background: #49484c; 
+    background: #17181c; 
     border-radius: 5px;
 }
 .container__card::-webkit-scrollbar-thumb:hover {
