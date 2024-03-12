@@ -118,7 +118,7 @@ const Home = () =>{
         let raizQuadrada = (!isNaN(numero) && numero >= 0) ? Math.sqrt(numero) : 'Entrada inválida. Por favor, digite um número válido e não negativo.';
 
         // Atualiza o conteúdo do elemento HTML com o id 'raizDeclarativo' para exibir o resultado
-        document.getElementById('raizDeclarativo').textContent = 'Raiz quadrada: ' + raizQuadrada;
+        document.getElementById('raizDeclarativo').textContent = 'Resultado: ' + raizQuadrada;
     }
 
 //=-=-=-= 2ª Avaliação =-=-=-=
@@ -414,15 +414,17 @@ const SortearConvidados = () => {
                         </span>
                     </div>
                     <div className={`timeline__item-body ${expandedItems.includes('item3') ? 'timeline__item-body--expanded' : ''}`} id="item3-ctrld" role="region" aria-labelledby="item3" aria-hidden={!expandedItems.includes('item3')}>
+                    <h3># Cálculo de raiz quadrada</h3>
                     <div className="timeline__item-body-content inputBox">
-                        <span>Cálculo de raiz quadrada - Paradigma Imperativo</span>
+                        
+                        <span style={{marginTop: '10px'}}>Paradigma Imperativo</span>
                         <input type="text" id="inputMatImperativo" placeholder="Digite um número"/><br />
                         <p className="timeline__item-p" id="raizImperativo">Resultado:</p>
                         <button onClick={iCalcularRaiz}>Calcular Raiz Quadrada</button>
                     </div>
 
                     <div className="timeline__item-body-content inputBox">
-                        <span>Cálculo de raiz quadrada - Paradigma Declarativo</span>
+                        <span style={{marginTop: '10px'}}>Paradigma Declarativo</span>
                         <input type="text" id="inputMatDeclarativo" placeholder="Digite um número"/><br />
                         <p className="timeline__item-p" id="raizDeclarativo">Resultado:</p>
                         <button onClick={dCalcularRaiz}>Calcular Raiz Quadrada</button>
