@@ -145,12 +145,13 @@ const [valorPosicao, setValorPosicao] = useState('');
 // Estado do componente para os valores da lista
 const [valoresLista, definirValoresLista] = useState([]);
 
-    // Função para inserir um nó no final da lista duplamente encadeada
-    const inserirNoFinal = (dados) => {
+// Função para inserir um nó no final da lista duplamente encadeada
+const inserirNoFinal = (dados) => {
     const novoNo = new Node(dados); // Cria um novo nó com os dados fornecidos
 
     if (!cabeca) { // Se a lista estiver vazia
         definirCabeca(novoNo); // Define o novo nó como o nó inicial
+
     } else {
         let atual = cabeca;
         while (atual.proximo) {
@@ -158,8 +159,8 @@ const [valoresLista, definirValoresLista] = useState([]);
         }
         atual.proximo = novoNo; // Define o proximo do último nó como o novo nó
         novoNo.anterior = atual; // Define o nó anterior do novo nó como o último nó
+        novoNo.proximo = null;
     }
-
     definirValoresLista([...valoresLista, dados]); // Adiciona o valor à lista de valores
     definirValorEntrada(''); // Limpa o valor de entrada
 };
@@ -181,12 +182,44 @@ const localizarNo = (posicao) => {
     return atual; // Retorna o nó na posição desejada
 };
 
-const deletarNo = (dados) => {
-    // Verifica se a lista está vazia
-    if (!cabeca) { 
-        return; // Se estiver vazia, não há nada para excluir
+// Função para inserir um nó no meio da lista duplamente encadeada
+const inserirNoMeio = (dados, posicao) => {
+    const novoNo = new Node(dados); // Cria um novo nó com os dados fornecidos
+
+    // Localiza o nó na posição desejada
+    let atual = localizarNo(posicao);
+    
+    // Verifica se a posição foi encontrada
+    if (!atual) {
+        console.log('Posição inválida');
+        return;
     }
 
+    // Insere o novo nó antes do nó na posição encontrada
+    novoNo.proximo = atual;
+    novoNo.anterior = atual.anterior;
+
+    // Verifica se o nó atual não é o primeiro da lista
+    if (atual.anterior) {
+        atual.anterior.proximo = novoNo; // Define o próximo do nó anterior como o novo nó
+    } else {
+        // Se o nó atual for o primeiro da lista, atualiza a cabeça da lista
+        definirCabeca(novoNo);
+    }
+    
+    atual.anterior = novoNo;
+
+    // Atualiza a lista de valores com o novo dado
+    definirValoresLista([...valoresLista.slice(0, posicao), dados, ...valoresLista.slice(posicao)]);
+
+    // Limpa o valor de entrada e posição após a inserção
+    definirValorEntrada('');
+    setValorPosicao('');
+};
+
+
+const deletarNo = (dados) => {
+    
     let atual = cabeca; // Começa a busca a partir da cabeça
     while (atual) { // Enquanto houver um nó para verificar
         // Se os dados do nó atual forem iguais aos dados fornecidos
@@ -219,9 +252,12 @@ const deletarNo = (dados) => {
     }
 };
 
-// Função para lidar com mudanças no input
-const lidarComMudancaDeInput = (e) => {
-    definirValorEntrada(e.target.value); // Atualiza o valor de entrada com o valor do input
+// Função para lidar com mudanças no input do valor a ser inserido
+const lidarComMudancaDeInputValor = (e) => {
+    definirValorEntrada(e.target.value);
+};
+// Função para lidar com mudanças no input do valor a ser inserido
+const lidarComMudancaDeInputPosicao = (e) => {
     setValorPosicao(e.target.value)
 };
 
@@ -514,8 +550,16 @@ const SortearConvidados = () => {
                                 <p style={{textAlign: 'Center', fontWeight: 'bold', marginTop: '10px'}}>Add element to the list</p>
                                 <div className="input_box_list">
                                 
-                                <input type="text" value={valorEntrada} onChange={lidarComMudancaDeInput} />
-                                <button className='Btn__add__elemente' onClick={() => inserirNoFinal(valorEntrada)}>Insert</button>
+                                <input type="text" value={valorEntrada} onChange={lidarComMudancaDeInputValor} placeholder='Inserir elemento' style={{marginBottom: '10px'}}/>
+                                <input type="text" value={valorPosicao} onChange={lidarComMudancaDeInputPosicao} placeholder='Informar posição'/>
+
+                                {valorPosicao.length > 0 ?(
+                                    <button className='Btn__add__elemente' onClick={() => inserirNoMeio(valorEntrada, valorPosicao)} style={{width: '150px'}}>Insert on position</button>
+                                ):(
+                                    <button className='Btn__add__elemente' onClick={() => inserirNoFinal(valorEntrada)}>Insert</button>
+                                )              
+                                }
+                                
                                     
                                 </div>
                                 <ul className="list-elements">
