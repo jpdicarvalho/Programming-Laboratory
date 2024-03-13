@@ -232,10 +232,9 @@ const processString = () => {
 /*======== Problemas em Paradigmas Funcionais: Matemáticos. ===========*/
 
 const [numTotalSuditos, setNumTotalSuditos] = useState('');
-const [numTurnos, setNumTurnos] = useState('');
 const [convidados, setConvidados] = useState([]);
 
-function calcularConvidados(N, M, turnos) {
+function calcularConvidados(N, turnos) {
     // Função para gerar uma lista de números de 1 a N
     const gerarLista = (tamanho) => Array.from({ length: tamanho }, (_, i) => i + 1);
     
@@ -266,7 +265,7 @@ const M = 2; // Número de turnos
 const turnos = [2, 3]; // Números sorteados em cada turno
 
 const SortearConvidados = () => {
-    const  teste = calcularConvidados(numTotalSuditos, numTurnos, turnos);
+    const  teste = calcularConvidados(numTotalSuditos, turnos);
     setConvidados(teste)
 }
 
@@ -455,10 +454,10 @@ const SortearConvidados = () => {
                     </div>
                     <div className={`timeline__item-body ${expandedItems.includes('item4') ? 'timeline__item-body--expanded' : ''}`} id="item4-ctrld" role="region" aria-labelledby="item4" aria-hidden={!expandedItems.includes('item4')}>
                         <div className="timeline__item-body-content">
-                            <h4>Nesta aula, foi solicitado a implementação de exmplos práticos com uso de bibliotecas gráficas. Sendo assim, segue abaixo um 'quadro' desenhável
+                            <h4 className='text__explanatory'>Nesta aula, foi solicitado a implementação de exmplos práticos com uso de bibliotecas gráficas. Sendo assim, segue abaixo um 'quadro' desenhável
                                 implementado com o canvas:
                             </h4>
-                            <Canvas />
+                            <Canvas/>
                         </div>
                     </div>
                 </div>
@@ -488,15 +487,15 @@ const SortearConvidados = () => {
                     </div>
                     <div className={`timeline__item-body ${expandedItems.includes('item5') ? 'timeline__item-body--expanded' : ''}`} id="item5-ctrld" role="region" aria-labelledby="item5" aria-hidden={!expandedItems.includes('item5')}>
                         <div className="timeline__item-body-content">
-                            <h4>Para essa aula, foi solicitado a implementação de operações de inserção e deleção de elementos em uma lista duplamente encadeada,
+                            <h4 className='text__explanatory'>Para essa aula, foi solicitado a implementação de operações de inserção e deleção de elementos em uma lista duplamente encadeada,
                                 sem usar de bibliotecas para implementação da estrutura de dados e das operações.
                             </h4>
                             <div className="doubly-linked-list">
-                                <p style={{textAlign: 'Center', fontWeight: 'bold'}}>Add element to the list</p>
+                                <p style={{textAlign: 'Center', fontWeight: 'bold', marginTop: '10px'}}>Add element to the list</p>
                                 <div className="input_box_list">
-                                <button className='Btn__add__elemente' onClick={() => inserirNoFinal(valorEntrada)}>Insert</button>
-                                <input type="text" value={valorEntrada} onChange={lidarComMudancaDeInput} />
                                 
+                                <input type="text" value={valorEntrada} onChange={lidarComMudancaDeInput} />
+                                <button className='Btn__add__elemente' onClick={() => inserirNoFinal(valorEntrada)}>Insert</button>
                                     
                                 </div>
                                 <ul className="list-elements">
@@ -533,22 +532,24 @@ const SortearConvidados = () => {
                         </span>
                     </div>
                     <div className={`timeline__item-body ${expandedItems.includes('item6') ? 'timeline__item-body--expanded' : ''}`} id="item6-ctrld" role="region" aria-labelledby="item6" aria-hidden={!expandedItems.includes('item6')}>
-                        <div className="timeline__item-body-content">
-                        <h4>
+                        <div className="timeline__item-body-content"><br />
+                        <h4 className='text__explanatory'>
                             Quando o botão "Processar" é clicado, a frase é processada da seguinte maneira:
-                                <ul>
+                                <ul><br />
                                     <li>A frase é convertida para letras minúsculas.</li>
                                     <li>Espaços em branco extras são removidos e a frase é dividida em um array de palavras.</li>
                                     <li>A ordem das palavras no array é revertida.</li>
                                     <li>As palavras são juntadas de volta em uma única string, que é exibida como a string processada.</li>
                                 </ul>
-                        </h4>
+                        </h4><br />
+                        <h4>Processamento de String</h4>
                             <div className='input_box_list'>
                                 
                                 <input 
                                     type="text" 
                                     id="inputString" 
                                     value={inputString} 
+                                    placeholder='Insira uma string'
                                     onChange={(e) => setInputString(e.target.value)} 
                                 />
                             </div>
@@ -586,8 +587,8 @@ const SortearConvidados = () => {
                     </div>
                     <div className={`timeline__item-body ${expandedItems.includes('item7') ? 'timeline__item-body--expanded' : ''}`} id="item7-ctrld" role="region" aria-labelledby="item7" aria-hidden={!expandedItems.includes('item7')}>
                         <div className="timeline__item-body-content">
-                        <h4>
-                        Resolver de modo Funcional o problema da <a href="https://olimpiada.ic.unicamp.br/pratique/ps/2021/f3/festa/"> Festa Olímpica</a><br /><br />
+                        <h4 className='text__explanatory'>
+                        Resolver de modo Funcional o problema da <a href="https://olimpiada.ic.unicamp.br/pratique/ps/2021/f3/festa/" style={{color: 'blue'}}> Festa Olímpica.</a><br /><br />
 
                         <ul># Resumo do Problema:
                                     <li>o problema requer a implementação de um algoritmo eficiente que
@@ -597,23 +598,16 @@ const SortearConvidados = () => {
                                 </ul>
                         </h4>
                             <div className='input_box_list'>
-                            <button onClick={SortearConvidados} className='Btn__add__elemente'>Sortear</button>
+                            
                                 <input 
-                                style={{fontSize: '16px', width: '200px', marginRight: '5px'}}
+                                style={{fontSize: '16px', width: '100%', marginRight: '5px', marginBottom: '10px'}}
                                     type="text" 
                                     id="numTotalSuditos" 
                                     value={numTotalSuditos} 
                                     placeholder='Número total de súditos'
                                     onChange={(e) => setNumTotalSuditos(e.target.value)}
                                 />
-                                <input
-                                style={{fontSize: '16px', width: '150px'}}
-                                    type="text" 
-                                    id="numTurnos" 
-                                    value={numTurnos} 
-                                    placeholder='Número de turnos'
-                                    onChange={(e) => setNumTurnos(e.target.value)}
-                                />
+                                <button onClick={SortearConvidados} className='Btn__add__elemente'>Sortear</button>
                             </div>
                             
                             {convidados.length > 0 && (
