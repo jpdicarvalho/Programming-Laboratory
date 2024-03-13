@@ -175,28 +175,28 @@ Lista Duplamente Encadeada com operações de inserção e deleção de elemento
 
 
     // Classe para criar um nó
-class Node {
-    constructor(dados) {
-        this.dados = dados; // Valor armazenado no nó
-        this.anterior = null; // Referência para o nó anterior na lista
-        this.proximo = null; // Referência para o proximo nó na lista
+    class Node {
+        constructor(dados) {
+            this.dados = dados; // Valor armazenado no nó
+            this.anterior = null; // Referência para o nó anterior na lista
+            this.proximo = null; // Referência para o proximo nó na lista
+        }
     }
-}
-
-// Estado do componente para o nó inicial da lista
-const [cabeca, definirCabeca] = useState(null);
-
-// Estado do componente para o valor de entrada do usuário
-const [valorEntrada, definirValorEntrada] = useState('');
-// Estado do componente para o valor de entrada do usuário
-const [valorPosicao, setValorPosicao] = useState('');
-
-// Estado do componente para os valores da lista
-const [valoresLista, definirValoresLista] = useState([]);
-
-// Função para inserir um nó no final da lista duplamente encadeada
-const inserirNoFinal = (dados) => {
-    const novoNo = new Node(dados); // Cria um novo nó com os dados fornecidos
+    
+    // Estado do componente para o nó inicial da lista
+    const [cabeca, definirCabeca] = useState(null);
+    
+    // Estado do componente para o valor de entrada do usuário
+    const [valorEntrada, definirValorEntrada] = useState('');
+    // Estado do componente para o valor de entrada do usuário
+    const [valorPosicao, setValorPosicao] = useState('');
+    
+    // Estado do componente para os valores da lista
+    const [valoresLista, definirValoresLista] = useState([]);
+    
+    // Função para inserir um nó no final da lista duplamente encadeada
+    const inserirNoFinal = (dados) => {
+        const novoNo = new Node(dados); // Cria um novo nó com os dados fornecidos
 
     if (!cabeca) { // Se a lista estiver vazia
         definirCabeca(novoNo); // Define o novo nó como o nó inicial
@@ -214,8 +214,8 @@ const inserirNoFinal = (dados) => {
     definirValorEntrada(''); // Limpa o valor de entrada
 };
 
-// Função para localizar o nó na posição desejada
-const localizarNo = (posicao) => {
+    // Função para localizar o nó na posição desejada
+    const localizarNo = (posicao) => {
     if (posicao < 0 || posicao >= valoresLista.length || !cabeca) {
         return null; // Retorna null se a posição for inválida ou a lista estiver vazia
     }
@@ -231,8 +231,8 @@ const localizarNo = (posicao) => {
     return atual; // Retorna o nó na posição desejada
 };
 
-// Função para inserir um nó no meio da lista duplamente encadeada
-const inserirNoMeio = (dados, posicao) => {
+    // Função para inserir um nó no meio da lista duplamente encadeada
+    const inserirNoMeio = (dados, posicao) => {
     const novoNo = new Node(dados); // Cria um novo nó com os dados fornecidos
 
     // Localiza o nó na posição desejada
@@ -267,8 +267,7 @@ const inserirNoMeio = (dados, posicao) => {
 };
 
 
-const deletarNo = (dados) => {
-    
+    const deletarNo = (dados) => {
     let atual = cabeca; // Começa a busca a partir da cabeça
     while (atual) { // Enquanto houver um nó para verificar
         // Se os dados do nó atual forem iguais aos dados fornecidos
@@ -298,17 +297,18 @@ const deletarNo = (dados) => {
             break; // Sai do loop após a exclusão
         }
         atual = atual.proximo; // Move para o próximo nó
-    }
-};
+        }
+    };
 
-// Função para lidar com mudanças no input do valor a ser inserido
-const lidarComMudancaDeInputValor = (e) => {
-    definirValorEntrada(e.target.value);
-};
-// Função para lidar com mudanças no input do valor a ser inserido
-const lidarComMudancaDeInputPosicao = (e) => {
-    setValorPosicao(e.target.value)
-};
+    //Função para lidar com mudanças no input do valor a ser inserido
+        const lidarComMudancaDeInputValor = (e) => {
+            definirValorEntrada(e.target.value);
+    };
+    
+    //Função para lidar com mudanças no input do valor a ser inserido
+    const lidarComMudancaDeInputPosicao = (e) => {
+        setValorPosicao(e.target.value)
+    };
 
 ### Problemas em Paradigmas Funcionais: Processamento de Strings 
     // Definindo estado para a string de entrada e a string processada
