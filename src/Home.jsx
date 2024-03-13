@@ -139,12 +139,14 @@ const [cabeca, definirCabeca] = useState(null);
 
 // Estado do componente para o valor de entrada do usuário
 const [valorEntrada, definirValorEntrada] = useState('');
+// Estado do componente para o valor de entrada do usuário
+const [valorPosicao, setValorPosicao] = useState('');
 
 // Estado do componente para os valores da lista
 const [valoresLista, definirValoresLista] = useState([]);
 
-// Função para inserir um nó no final da lista duplamente encadeada
-const inserirNoFinal = (dados) => {
+    // Função para inserir um nó no final da lista duplamente encadeada
+    const inserirNoFinal = (dados) => {
     const novoNo = new Node(dados); // Cria um novo nó com os dados fornecidos
 
     if (!cabeca) { // Se a lista estiver vazia
@@ -160,6 +162,23 @@ const inserirNoFinal = (dados) => {
 
     definirValoresLista([...valoresLista, dados]); // Adiciona o valor à lista de valores
     definirValorEntrada(''); // Limpa o valor de entrada
+};
+
+// Função para localizar o nó na posição desejada
+const localizarNo = (posicao) => {
+    if (posicao < 0 || posicao >= valoresLista.length || !cabeca) {
+        return null; // Retorna null se a posição for inválida ou a lista estiver vazia
+    }
+
+    let atual = cabeca;
+    for (let i = 0; i < posicao; i++) {
+        if (atual.proximo) {
+            atual = atual.proximo; // Avança na lista até a posição desejada
+        } else {
+            return null; // Retorna null se não houver mais nós na lista antes da posição desejada
+        }
+    }
+    return atual; // Retorna o nó na posição desejada
 };
 
 const deletarNo = (dados) => {
@@ -203,6 +222,7 @@ const deletarNo = (dados) => {
 // Função para lidar com mudanças no input
 const lidarComMudancaDeInput = (e) => {
     definirValorEntrada(e.target.value); // Atualiza o valor de entrada com o valor do input
+    setValorPosicao(e.target.value)
 };
 
 /*======== Problemas em Paradigmas Funcionais: Processamento de Strings ===========*/
