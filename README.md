@@ -171,7 +171,7 @@ A seguir, serão apresentadas as funções em JavaScript implementadas para cada
 # >> 2ª Avaliação
 
 ### Problemas em Paradigmas Imperativos: Estruturas de Dados
-Lista Duplamente Encadeada com operações de inserção e deleção de elementos.
+Lista Duplamente Encadeada com operações de inserção (meio e final) e deleção de elementos.
 
 
     // Classe para criar um nó
@@ -212,7 +212,7 @@ Lista Duplamente Encadeada com operações de inserção e deleção de elemento
     }
     definirValoresLista([...valoresLista, dados]); // Adiciona o valor à lista de valores
     definirValorEntrada(''); // Limpa o valor de entrada
-};
+    };
 
     // Função para localizar o nó na posição desejada
     const localizarNo = (posicao) => {
@@ -229,7 +229,7 @@ Lista Duplamente Encadeada com operações de inserção e deleção de elemento
         }
     }
     return atual; // Retorna o nó na posição desejada
-};
+    };
 
     // Função para inserir um nó no meio da lista duplamente encadeada
     const inserirNoMeio = (dados, posicao) => {
@@ -264,7 +264,7 @@ Lista Duplamente Encadeada com operações de inserção e deleção de elemento
     // Limpa o valor de entrada e posição após a inserção
     definirValorEntrada('');
     setValorPosicao('');
-};
+    };
 
 
     const deletarNo = (dados) => {
