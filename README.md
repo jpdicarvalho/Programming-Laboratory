@@ -174,70 +174,141 @@ A seguir, serão apresentadas as funções em JavaScript implementadas para cada
 Lista Duplamente Encadeada com operações de inserção e deleção de elementos.
 
 
-    //Classe de criação do nó
-    class Node {
-        constructor(data) {
-            this.data = data;
-            this.prev = null;
-            this.next = null;
+    // Classe para criar um nó
+class Node {
+    constructor(dados) {
+        this.dados = dados; // Valor armazenado no nó
+        this.anterior = null; // Referência para o nó anterior na lista
+        this.proximo = null; // Referência para o proximo nó na lista
+    }
+}
+
+// Estado do componente para o nó inicial da lista
+const [cabeca, definirCabeca] = useState(null);
+
+// Estado do componente para o valor de entrada do usuário
+const [valorEntrada, definirValorEntrada] = useState('');
+// Estado do componente para o valor de entrada do usuário
+const [valorPosicao, setValorPosicao] = useState('');
+
+// Estado do componente para os valores da lista
+const [valoresLista, definirValoresLista] = useState([]);
+
+// Função para inserir um nó no final da lista duplamente encadeada
+const inserirNoFinal = (dados) => {
+    const novoNo = new Node(dados); // Cria um novo nó com os dados fornecidos
+
+    if (!cabeca) { // Se a lista estiver vazia
+        definirCabeca(novoNo); // Define o novo nó como o nó inicial
+
+    } else {
+        let atual = cabeca;
+        while (atual.proximo) {
+            atual = atual.proximo; // Percorre a lista até encontrar o último nó
+        }
+        atual.proximo = novoNo; // Define o proximo do último nó como o novo nó
+        novoNo.anterior = atual; // Define o nó anterior do novo nó como o último nó
+        novoNo.proximo = null;
+    }
+    definirValoresLista([...valoresLista, dados]); // Adiciona o valor à lista de valores
+    definirValorEntrada(''); // Limpa o valor de entrada
+};
+
+// Função para localizar o nó na posição desejada
+const localizarNo = (posicao) => {
+    if (posicao < 0 || posicao >= valoresLista.length || !cabeca) {
+        return null; // Retorna null se a posição for inválida ou a lista estiver vazia
+    }
+
+    let atual = cabeca;
+    for (let i = 0; i < posicao; i++) {
+        if (atual.proximo) {
+            atual = atual.proximo; // Avança na lista até a posição desejada
+        } else {
+            return null; // Retorna null se não houver mais nós na lista antes da posição desejada
         }
     }
-    const [head, setHead] = useState(null);
-    const [inputValue, setInputValue] = useState('');
-    const [listValues, setListValues] = useState([]);
+    return atual; // Retorna o nó na posição desejada
+};
 
-    // Função para inserir um nó no final da lista duplamente encadeada
-    const insertAtEnd = (data) => {
-        const newNode = new Node(data);
+// Função para inserir um nó no meio da lista duplamente encadeada
+const inserirNoMeio = (dados, posicao) => {
+    const novoNo = new Node(dados); // Cria um novo nó com os dados fornecidos
 
-        if (!head) {
-            setHead(newNode);
-        } else {
-            let current = head;
-            while (current.next) {
-                current = current.next;
-            }
-            current.next = newNode;
-            newNode.prev = current;
-        }
+    // Localiza o nó na posição desejada
+    let atual = localizarNo(posicao);
+    
+    // Verifica se a posição foi encontrada
+    if (!atual) {
+        console.log('Posição inválida');
+        return;
+    }
 
-        setListValues([...listValues, data]);
-        setInputValue('');
-    };
+    // Insere o novo nó antes do nó na posição encontrada
+    novoNo.proximo = atual;
+    novoNo.anterior = atual.anterior;
 
-    // Função para deletar um nó vom valor específico da lista duplamente encadeada
-    const deleteNode = (data) => {
-        if (!head) {
-            return;
-        }
+    // Verifica se o nó atual não é o primeiro da lista
+    if (atual.anterior) {
+        atual.anterior.proximo = novoNo; // Define o próximo do nó anterior como o novo nó
+    } else {
+        // Se o nó atual for o primeiro da lista, atualiza a cabeça da lista
+        definirCabeca(novoNo);
+    }
+    
+    atual.anterior = novoNo;
 
-        let current = head;
-        while (current) {
-            if (current.data === data) {
-                if (current === head) {
-                    setHead(current.next);
-                    if (current.next) {
-                        current.next.prev = null;
-                    }
-                } else {
-                    if (current.prev) {
-                        current.prev.next = current.next;
-                    }
-                    if (current.next) {
-                        current.next.prev = current.prev;
-                    }
+    // Atualiza a lista de valores com o novo dado
+    definirValoresLista([...valoresLista.slice(0, posicao), dados, ...valoresLista.slice(posicao)]);
+
+    // Limpa o valor de entrada e posição após a inserção
+    definirValorEntrada('');
+    setValorPosicao('');
+};
+
+
+const deletarNo = (dados) => {
+    
+    let atual = cabeca; // Começa a busca a partir da cabeça
+    while (atual) { // Enquanto houver um nó para verificar
+        // Se os dados do nó atual forem iguais aos dados fornecidos
+        if (atual.dados === dados) { 
+            // Se o nó atual for a cabeça
+            if (atual === cabeca) { 
+                definirCabeca(atual.proximo); // Define o próximo nó como cabeça
+                // Define o anterior do próximo nó como null se houver próximo nó
+                if (atual.proximo) { 
+                    atual.proximo.anterior = null; 
                 }
-                setListValues(listValues.filter(item => item !== data));
-                break;
+            } else {
+                // Define o próximo do nó anterior como o próximo do nó atual
+                if (atual.anterior) { 
+                    atual.anterior.proximo = atual.proximo; 
+                }
+                // Define o anterior do próximo nó como o anterior do nó atual
+                if (atual.proximo) { 
+                    atual.proximo.anterior = atual.anterior; 
+                } else {
+                    // Se atual for o último nó da lista, define o próximo do nó anterior como null
+                    atual.anterior.proximo = null; 
+                }
             }
-            current = current.next;
+            // Remove o dado da lista de valores
+            definirValoresLista(valoresLista.filter(item => item !== dados)); 
+            break; // Sai do loop após a exclusão
         }
-    };
+        atual = atual.proximo; // Move para o próximo nó
+    }
+};
 
-    // Função para lidar com mudanças no input
-    const handleInputChange = (e) => {
-        setInputValue(e.target.value);
-    };
+// Função para lidar com mudanças no input do valor a ser inserido
+const lidarComMudancaDeInputValor = (e) => {
+    definirValorEntrada(e.target.value);
+};
+// Função para lidar com mudanças no input do valor a ser inserido
+const lidarComMudancaDeInputPosicao = (e) => {
+    setValorPosicao(e.target.value)
+};
 
 ### Problemas em Paradigmas Funcionais: Processamento de Strings 
     // Definindo estado para a string de entrada e a string processada
