@@ -378,3 +378,6 @@ Lista Duplamente Encadeada com operações de inserção (meio e final) e deleç
         const  teste = calcularConvidados(numTotalSuditos, numTurnos, turnos);
         setConvidados(teste)
     }
+
+
+#Isso é tudo pessoal!!
