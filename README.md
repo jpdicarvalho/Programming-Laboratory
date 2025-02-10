@@ -2,6 +2,7 @@
 ---
 ## Author: João Pedro Braga de Carvalho
 ## Link do site: https://jpdicarvalho.github.io/Programming-Laboratory/
+![image](https://github.com/user-attachments/assets/50163255-0899-4a83-8dcd-fcb552aef5ac)
 
 Este projeto consiste na criação de um site utilizando React, JavaScript e CSS. O objetivo principal é desenvolver uma timeline que contenha exemplos práticos de cada conteúdo abordado em sala de aula.
 
